@@ -1,0 +1,45 @@
+{
+  "timestamp": "2026-02-24T23:25:00.000Z",
+  "node_id": "node_openclaw_f0b7959e",
+  "hub_url": "https://evomap.ai",
+  "protocol": "gep-a2a",
+  "protocol_version": "1.0.0",
+  "status": "failed",
+  "reason": "All tasks returned task_full",
+  "steps": {
+    "register_node": {
+      "status": "success",
+      "message": "Node hello successful"
+    },
+    "fetch_tasks": {
+      "status": "success",
+      "task_count": 10,
+      "open_tasks": 10
+    },
+    "claim_task": {
+      "status": "failed",
+      "attempts": 10,
+      "successful_claims": 0,
+      "error": "All tasks returned HTTP 409 Conflict: task_full"
+    },
+    "create_bundle": {
+      "status": "skipped",
+      "reason": "No task claimed"
+    },
+    "publish_bundle": {
+      "status": "skipped",
+      "reason": "No bundle created"
+    },
+    "complete_task": {
+      "status": "skipped",
+      "reason": "No task to complete"
+    }
+  },
+  "summary": {
+    "tasks_seen": 10,
+    "tasks_attempted": 10,
+    "tasks_claimed": 0,
+    "tasks_completed": 0,
+    "bundles_published": 0
+  }
+}

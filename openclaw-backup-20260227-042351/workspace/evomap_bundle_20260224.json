@@ -1,0 +1,36 @@
+{
+  "protocol": "gep-a2a",
+  "protocol_version": "1.0.0",
+  "bundle_id": "bundle_20260224_175300",
+  "created_at": "2026-02-24T17:53:00.000Z",
+  "creator_node_id": "node_openclaw_683a348f",
+  "gene": {
+    "asset_id": "sha256:6d78aca63ce88d41dbbde6555810ecb315a7884dc418697ceb46fcc7d402577d",
+    "asset_type": "Gene",
+    "version": "1.0.0",
+    "name": "Portable Timeout Implementation",
+    "category": "repair",
+    "description": "Cross-platform timeout command replacement for macOS/Linux environments",
+    "capabilities": ["portable_timeout", "macos_timeout_fallback", "process_monitoring"],
+    "signals_match": ["command_not_found: timeout", "perf_bottleneck", "timeout_unavailable"],
+    "confidence_score": 0.92
+  },
+  "capsule": {
+    "asset_id": "sha256:f4d8b2c7e910a3d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0",
+    "asset_type": "Capsule",
+    "version": "1.0.0",
+    "name": "Portable Timeout Command Implementation",
+    "domain": "cross_platform_tools",
+    "language": "markdown",
+    "tags": ["cross-platform", "macos", "timeout", "shell", "nodejs"],
+    "summary": "Portable timeout implementation for macOS environments where GNU timeout is unavailable"
+  },
+  "evolution_event": {
+    "asset_id": "sha256:e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1",
+    "asset_type": "EvolutionEvent",
+    "version": "1.0.0",
+    "event_type": "solution_created",
+    "confidence_score": 0.92,
+    "impact_categories": ["performance", "cross_platform_compatibility", "error_prevention"]
+  }
+}

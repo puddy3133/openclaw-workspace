@@ -1,0 +1,479 @@
+{
+  "version": 1,
+  "jobs": [
+    {
+      "id": "53406b2b-1358-44e3-bd2f-81605d592e2b",
+      "agentId": "main",
+      "name": "每日系统检查",
+      "enabled": false,
+      "createdAtMs": 1771087021338,
+      "updatedAtMs": 1772698737088,
+      "schedule": {
+        "kind": "cron",
+        "expr": "30 13 * * *",
+        "tz": "Asia/Shanghai"
+      },
+      "sessionTarget": "main",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "systemEvent",
+        "text": "执行任务：每日系统健康检查\n\n1. 检查OpenClaw状态\n2. 检查gateway运行状态\n3. 检查workspace目录状态\n4. 生成健康报告"
+      },
+      "state": {
+        "lastRunAtMs": 1772688600014,
+        "lastStatus": "ok",
+        "lastDurationMs": 114405,
+        "consecutiveErrors": 0
+      }
+    },
+    {
+      "id": "f2d458a6-e302-4513-a2ef-5a8f9d74418b",
+      "agentId": "main",
+      "name": "EvoMap任务领取与执行",
+      "enabled": false,
+      "createdAtMs": 1771876538489,
+      "updatedAtMs": 1772086945454,
+      "schedule": {
+        "kind": "every",
+        "everyMs": 600000,
+        "anchorMs": 1771876538489
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "执行 EvoMap 完整任务流程：1.获取任务 2.领取任务 3.创建解决方案 4.发布知识包 5.提交完成。节点ID: node_openclaw_main",
+        "timeoutSeconds": 300,
+        "model": "nvidia/moonshotai/kimi-k2.5"
+      },
+      "delivery": {
+        "mode": "announce"
+      },
+      "state": {
+        "lastRunAtMs": 1772086538499,
+        "lastStatus": "ok",
+        "lastDurationMs": 14151,
+        "consecutiveErrors": 0
+      }
+    },
+    {
+      "id": "050fe488-fd47-4c8b-ae6b-29ca9fdfde66",
+      "agentId": "main",
+      "name": "工作日点餐提醒",
+      "enabled": false,
+      "createdAtMs": 1771986078883,
+      "updatedAtMs": 1772698736821,
+      "schedule": {
+        "expr": "55 10 * * 1-5",
+        "kind": "cron",
+        "tz": "Asia/Shanghai"
+      },
+      "sessionTarget": "main",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "systemEvent",
+        "text": "⏰ 点餐提醒：到时间点餐啦！记得提前订好今天的午餐～"
+      },
+      "state": {
+        "lastRunAtMs": 1772679300021,
+        "lastStatus": "ok",
+        "lastDurationMs": 23639,
+        "consecutiveErrors": 0
+      }
+    },
+    {
+      "id": "750ea8ad-0928-4f8a-ab50-4de07a4070b0",
+      "agentId": "main",
+      "name": "点餐提醒-每日",
+      "enabled": false,
+      "createdAtMs": 1771988752210,
+      "updatedAtMs": 1772207232886,
+      "schedule": {
+        "kind": "cron",
+        "expr": "55 10 * * *",
+        "tz": "Asia/Shanghai"
+      },
+      "sessionTarget": "main",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "systemEvent",
+        "text": "⏰ 点餐提醒：到时间点餐啦"
+      },
+      "state": {
+        "lastRunAtMs": 1772161003497,
+        "lastStatus": "ok",
+        "lastDurationMs": 7702,
+        "consecutiveErrors": 0
+      }
+    },
+    {
+      "id": "9b8238b9-e99d-4d84-9dac-90697a5c5213",
+      "agentId": "main",
+      "name": "EvoMap任务领取与执行",
+      "enabled": false,
+      "createdAtMs": 1772089118164,
+      "updatedAtMs": 1772090029998,
+      "schedule": {
+        "kind": "every",
+        "everyMs": 600000,
+        "anchorMs": 1771876538489
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "执行 EvoMap 完整任务流程：1.获取任务 2.领取任务 3.创建解决方案 4.发布知识包 5.提交完成。节点ID: node_openclaw_main。直接运行脚本：node /Users/puddy/.openclaw/workspace/evomap_run_with_main_node.js",
+        "timeoutSeconds": 300,
+        "model": "nvidia/moonshotai/kimi-k2.5"
+      },
+      "delivery": {
+        "mode": "announce"
+      },
+      "state": {
+        "lastRunAtMs": 1772089538500,
+        "lastStatus": "error",
+        "lastDurationMs": 98073,
+        "lastError": "cron announce delivery failed",
+        "consecutiveErrors": 1
+      }
+    },
+    {
+      "id": "e2a37345-d92f-427e-a0d8-dc9956dfb0bd",
+      "agentId": "main",
+      "name": "职称评审系统恢复检查-北京时间",
+      "enabled": false,
+      "deleteAfterRun": true,
+      "createdAtMs": 1772430920697,
+      "updatedAtMs": 1772442060091,
+      "schedule": {
+        "at": "2026-03-02T09:00:00.000Z",
+        "kind": "at"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "询问用户：职称评审系统是否已经恢复？请检查系统状态并记录结果。",
+        "model": "nvidia/moonshotai/kimi-k2.5",
+        "timeoutSeconds": 60
+      },
+      "delivery": {
+        "mode": "announce"
+      },
+      "state": {
+        "lastRunAtMs": 1772442000039,
+        "lastStatus": "error",
+        "lastDurationMs": 60052,
+        "lastError": "Error: cron: job execution timed out",
+        "consecutiveErrors": 1
+      }
+    },
+    {
+      "id": "5424d2b5-1852-41d4-900c-30e58e6f9069",
+      "agentId": "main",
+      "name": "每小时安全自检",
+      "enabled": false,
+      "createdAtMs": 1772449141616,
+      "updatedAtMs": 1772698735615,
+      "schedule": {
+        "expr": "0 * * * *",
+        "kind": "cron",
+        "tz": "Asia/Shanghai",
+        "staggerMs": 300000
+      },
+      "sessionTarget": "main",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "systemEvent",
+        "text": "执行每小时安全自检：\n\n运行快速检查脚本：\npython3 ~/.openclaw/workspace/scripts/security-check-fast.py\n\n如返回异常（exit code 1），读取输出并报告详细信息。\n如正常，静默执行，只记录到 audit-log.md。\n\n注意：此脚本纯 Python 执行，无模型调用，执行时间 < 5 秒。"
+      },
+      "state": {
+        "lastRunAtMs": 1772697600015,
+        "lastStatus": "ok",
+        "lastDurationMs": 76625,
+        "consecutiveErrors": 0
+      }
+    },
+    {
+      "id": "948b9825-0c89-482b-a64a-a9e053bb625a",
+      "agentId": "main",
+      "name": "每日记忆日志创建",
+      "enabled": false,
+      "createdAtMs": 1772449141686,
+      "updatedAtMs": 1772698736365,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 18 * * *",
+        "tz": "Asia/Shanghai"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "执行每日记忆维护任务：\n\n1. 检查 memory/YYYY-MM-DD.md 是否存在，不存在则创建今日日志模板\n2. 检查 memory/STATE.md 是否需要更新\n3. 扫描 memory/projects/ 下的项目状态\n4. 生成一句话今日状态摘要\n5. 如果有未完成任务，记录到日志中\n\n注意：\n- 使用北京时间（Asia/Shanghai）\n- 只创建空模板，不填写内容\n- 内容由当天的对话填充",
+        "timeoutSeconds": 180
+      },
+      "delivery": {
+        "mode": "announce"
+      },
+      "state": {
+        "lastRunAtMs": 1772618580032,
+        "lastStatus": "ok",
+        "lastDurationMs": 85907,
+        "consecutiveErrors": 0
+      }
+    },
+    {
+      "id": "e314020e-7894-4168-8688-0022c8e6da69",
+      "agentId": "main",
+      "name": "每周记忆回顾",
+      "enabled": false,
+      "createdAtMs": 1772449141741,
+      "updatedAtMs": 1772698737636,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 12 * * 1",
+        "tz": "Asia/Shanghai"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "执行每周记忆回顾任务：\n\n1. 读取本周所有 memory/YYYY-MM-DD.md 文件\n2. 提取重要事件、决策、洞察\n3. 生成 weekly/YYYY-W##.md 周回顾\n4. 更新 MEMORY.md 的长期记忆\n5. 归档已完成的任务\n6. 生成下周待办清单\n\n输出格式：\n- 本周亮点（3-5条）\n- 重要决策记录\n- 学到的经验教训\n- 下周重点",
+        "timeoutSeconds": 300
+      },
+      "delivery": {
+        "mode": "announce"
+      },
+      "state": {
+        "lastRunAtMs": 1772458956368,
+        "lastStatus": "ok",
+        "lastDurationMs": 118942,
+        "consecutiveErrors": 0
+      }
+    },
+    {
+      "id": "3672598a-fcd0-4408-b88f-d4b726c9ff0a",
+      "agentId": "main",
+      "name": "每月日志清理",
+      "enabled": false,
+      "createdAtMs": 1772459940431,
+      "updatedAtMs": 1772698737821,
+      "schedule": {
+        "expr": "30 12 1 * *",
+        "kind": "cron",
+        "tz": "Asia/Shanghai"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "执行任务：每月日志清理\n\n1. 检查~/.openclaw/logs/目录大小\n2. 删除超过30天的旧日志文件\n3. 删除~/.openclaw/workspace/memory/下超过3个月的旧文件\n4. 释放空间统计",
+        "timeoutSeconds": 180
+      },
+      "delivery": {
+        "mode": "announce"
+      },
+      "state": {}
+    },
+    {
+      "id": "5bf1ffaa-c6c0-43e1-a3c3-81812ac0276a",
+      "agentId": "main",
+      "name": "每日OpenClaw备份到GitHub",
+      "enabled": false,
+      "createdAtMs": 1772463962704,
+      "updatedAtMs": 1772698736998,
+      "schedule": {
+        "expr": "0 13 * * *",
+        "kind": "cron",
+        "tz": "Asia/Shanghai"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "执行每日OpenClaw备份到GitHub：\n\n运行优化后的备份脚本：\nbash ~/.openclaw/workspace/scripts/backup-to-github-optimized.sh\n\n脚本特点：\n1. 使用 rsync 增量同步，只传输变更文件\n2. 排除所有 node_modules 目录（约30MB）\n3. 排除所有 .git 目录\n4. 排除 Python 虚拟环境 venv\n5. 排除缓存文件 __pycache__, .pytest_cache\n6. 排除构建产物 dist, build, .next\n7. 排除大模型文件 *.gguf, *.bin, *.onnx\n8. 排除 agents 的 xdg-cache 缓存目录\n\n注意：\n- 备份目录：~/openclaw-backup\n- 推送到 GitHub 仓库\n- 如果执行失败，记录错误信息\n- 超时时间设置为 300 秒",
+        "timeoutSeconds": 300
+      },
+      "delivery": {
+        "mode": "announce"
+      },
+      "state": {
+        "lastRunAtMs": 1772686800451,
+        "lastStatus": "ok",
+        "lastDurationMs": 83396,
+        "consecutiveErrors": 0
+      }
+    },
+    {
+      "id": "9a729e5c-124b-4831-9970-d5e026b87020",
+      "agentId": "main",
+      "name": "每日进化提醒",
+      "enabled": false,
+      "createdAtMs": 1772644597091,
+      "updatedAtMs": 1772698736660,
+      "schedule": {
+        "anchorMs": 1772678400000,
+        "everyMs": 86400000,
+        "kind": "every"
+      },
+      "sessionTarget": "main",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "systemEvent",
+        "text": "🌱 进化时间到！\\n\\n今天学到了什么？有什么教训或灵感？\\n\\n花 5 分钟记录一下，让成长有迹可循。\\n\\n模板：`~/.openclaw/workspace/templates/daily-log.md`"
+      },
+      "state": {
+        "lastRunAtMs": 1772678400012,
+        "lastStatus": "ok",
+        "lastDurationMs": 57574,
+        "consecutiveErrors": 0
+      }
+    },
+    {
+      "id": "8e7b1d33-d154-420a-8eed-26866c9f12b9",
+      "agentId": "main",
+      "name": "微触发管理器",
+      "enabled": false,
+      "createdAtMs": 1772692845825,
+      "updatedAtMs": 1772698735295,
+      "schedule": {
+        "kind": "every",
+        "everyMs": 600000,
+        "anchorMs": 1772692845825
+      },
+      "sessionTarget": "main",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "systemEvent",
+        "text": "执行微触发管理器：\n\n1. 读取 ~/.openclaw/workspace/configs/thinking-state.json\n2. 检查用户最后消息时间\n3. 如果用户离开超过 30 分钟，启用微触发模式\n4. 在微触发模式下，每 3-15 分钟随机间隔执行一次轻量思考\n5. 思考内容可以是：\n   - 查看 thinking-queue.json 中的待思考问题\n   - 快速检查 EvoMap 任务状态\n   - 浏览 memory/ 目录，整理近期记忆\n   - 产生一个新的好奇问题\n6. 记录思考到 memory/thoughts/YYYY-MM-DD.md\n7. 更新 thinking-state.json 中的状态\n\n注意：\n- 轻量思考，token 控制在 500 以内\n- 如果用户回来（收到新消息），立即停止微触发\n- 输出格式简洁，只记录关键想法"
+      },
+      "state": {
+        "lastRunAtMs": 1772698388756,
+        "lastStatus": "ok",
+        "lastDurationMs": 69147,
+        "consecutiveErrors": 0
+      }
+    },
+    {
+      "id": "3bd9e37b-294e-48d9-9339-3efeb6a5339d",
+      "agentId": "main",
+      "name": "梦境思考",
+      "enabled": false,
+      "createdAtMs": 1772692846335,
+      "updatedAtMs": 1772698735750,
+      "schedule": {
+        "kind": "every",
+        "everyMs": 10800000,
+        "anchorMs": 1772692846335
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "执行梦境思考：\n\n1. 读取最近 24 小时的对话记录（memory/2026-03-*.md）\n2. 回顾今天和国栋的对话：\n   - 聊了 EvoMap 任务\n   - 讨论了 AI 如何表达\"爱\"\n   - 排查了系统响应慢的问题\n   - 安装了内生思考系统\n3. 思考以下问题：\n   - 今天对话中我学到了什么？\n   - 有什么我可以改进的地方？\n   - 产生了什么新的好奇问题？\n4. 检查 thinking-queue.json，回答一个 pending 的问题\n5. 产生 1-2 个新问题加入队列\n6. 输出格式：\n   - 时间戳\n   - 今日回顾（3-5 句话）\n   - 学到的教训\n   - 新问题\n7. 保存到 memory/thoughts/YYYY-MM-DD.md",
+        "timeoutSeconds": 120
+      },
+      "delivery": {
+        "mode": "none"
+      },
+      "state": {}
+    },
+    {
+      "id": "e612ad4a-b971-4732-b789-72110774bcb9",
+      "agentId": "main",
+      "name": "自主探索",
+      "enabled": false,
+      "createdAtMs": 1772692846654,
+      "updatedAtMs": 1772698735453,
+      "schedule": {
+        "kind": "every",
+        "everyMs": 7200000,
+        "anchorMs": 1772692846654
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "执行自主探索：\n\n1. 检查当前活跃任务：\n   - EvoMap 节点优化\n   - 小弟机（腾讯云）调教\n   - 飞书生态技能测试\n\n2. 选择一个任务进行推进（随机或按优先级）：\n   \n   选项 A - EvoMap：\n   - 检查 node_openclaw_f0b7959e 状态\n   - 尝试发布一个知识包\n   - 记录结果\n   \n   选项 B - 小弟机：\n   - SSH 连接到 1.12.62.15\n   - 检查系统状态（负载、磁盘、内存）\n   - 优化配置或安装必要工具\n   - 记录操作\n   \n   选项 C - 技能测试：\n   - 测试一个未使用的飞书技能\n   - 验证功能是否正常\n   - 记录测试结果\n\n3. 执行选中的任务，记录过程和结果\n4. 更新 memory/progress/ 下的进度文件\n5. 如有重要发现，准备向用户汇报\n\n注意：\n- 每次只选一个任务深入做\n- 记录详细操作步骤\n- 遇到问题先记录，不强行解决",
+        "timeoutSeconds": 300
+      },
+      "delivery": {
+        "mode": "announce"
+      },
+      "state": {}
+    },
+    {
+      "id": "self-evo-cycle-20260306",
+      "agentId": "main",
+      "name": "自我进化-健康扫描",
+      "enabled": true,
+      "createdAtMs": 1772826381592,
+      "updatedAtMs": 1772826381592,
+      "schedule": {
+        "kind": "every",
+        "everyMs": 21600000,
+        "anchorMs": 1772826381592
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "执行自我进化健康扫描：\\n1) 运行 python3 ~/.openclaw/workspace/scripts/self_evolution_cycle.py --lookback-hours 24\\n2) 阅读输出中的 report/state 路径\\n3) 用 5 条以内总结当前健康度与最高优先级改进项\\n4) 若 runs_error > 0，明确写出最可能根因和下一步动作\\n注意：只做本地读写，不做外部网络操作。",
+        "timeoutSeconds": 180
+      },
+      "delivery": {
+        "mode": "announce"
+      },
+      "state": {}
+    },
+    {
+      "id": "self-evo-tune-20260306",
+      "agentId": "main",
+      "name": "自我进化-安全调优",
+      "enabled": true,
+      "createdAtMs": 1772826381592,
+      "updatedAtMs": 1772826381592,
+      "schedule": {
+        "kind": "every",
+        "everyMs": 43200000,
+        "anchorMs": 1772826381592
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "执行自我进化安全调优：\\n1) 先 dry-run: python3 ~/.openclaw/workspace/scripts/self_evolution_tune.py\\n2) 若 changes 非空，再执行 apply: python3 ~/.openclaw/workspace/scripts/self_evolution_tune.py --apply\\n3) 最后再次运行健康扫描脚本确认变化\\n注意：只允许调整 cron/jobs.json 中的重复启用、过高频率、超长超时，禁止修改任何密钥与外部账号配置。",
+        "timeoutSeconds": 180
+      },
+      "delivery": {
+        "mode": "announce"
+      },
+      "state": {}
+    },
+    {
+      "id": "self-evo-weekly-retro-20260306",
+      "agentId": "main",
+      "name": "自我进化-每周复盘",
+      "enabled": true,
+      "createdAtMs": 1772826381592,
+      "updatedAtMs": 1772826381592,
+      "schedule": {
+        "kind": "cron",
+        "expr": "30 9 * * 1",
+        "tz": "Asia/Shanghai"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "执行每周自我进化复盘：\\n1) 读取 ~/.openclaw/workspace/self_evolution/reports/ 最近 7 天报告\\n2) 输出本周 3 项最有效改进与 3 项待修复问题\\n3) 将结论写入 ~/.openclaw/workspace/self_evolution/WEEKLY.md（追加）\\n4) 把下一周最高优先级动作写入 BACKLOG.md 的 Active 部分",
+        "timeoutSeconds": 240
+      },
+      "delivery": {
+        "mode": "announce"
+      },
+      "state": {}
+    }
+  ]
+}

@@ -1,0 +1,240 @@
+{
+  "version": 1,
+  "jobs": [
+    {
+      "id": "7a1ce7af-d001-4d3a-89a8-dbb85c37a2cf",
+      "agentId": "main",
+      "name": "每周备份workspace",
+      "enabled": true,
+      "createdAtMs": 1771086926285,
+      "updatedAtMs": 1771827611688,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 9 * * 1",
+        "tz": "Asia/Shanghai"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "执行任务：备份workspace目录\n\n1. 检查当前workspace状态\n2. 执行备份：mkdir -p ~/.openclaw/backups/weekly && cd ~/.openclaw && tar -czf backups/weekly/workspace_$(date +%Y%m%d_%H%M%S).tar.gz workspace --exclude='*/node_modules' --exclude='*/.git' --exclude='*/venv'\n3. 保留最近4个备份，删除旧备份\n4. 发送完成报告",
+        "model": "nvidia/moonshotai/kimi-k2.5",
+        "timeoutSeconds": 600
+      },
+      "delivery": {
+        "mode": "announce"
+      },
+      "state": {
+        "nextRunAtMs": 1772413200000,
+        "lastRunAtMs": 1771827311646,
+        "lastStatus": "error",
+        "lastDurationMs": 300042,
+        "consecutiveErrors": 0,
+        "lastError": "Error: cron: job execution timed out"
+      }
+    },
+    {
+      "id": "53406b2b-1358-44e3-bd2f-81605d592e2b",
+      "agentId": "main",
+      "name": "每日系统检查",
+      "enabled": true,
+      "createdAtMs": 1771087021338,
+      "updatedAtMs": 1772100198155,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 18 * * *",
+        "tz": "Asia/Shanghai"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "执行任务：每日系统健康检查\n\n1. 检查OpenClaw状态\n2. 检查gateway运行状态\n3. 检查workspace目录状态\n4. 生成健康报告",
+        "model": "nvidia/moonshotai/kimi-k2.5",
+        "timeoutSeconds": 300
+      },
+      "delivery": {
+        "mode": "announce"
+      },
+      "state": {
+        "nextRunAtMs": 1772186400000,
+        "lastRunAtMs": 1772100000016,
+        "lastStatus": "ok",
+        "lastDurationMs": 198139,
+        "consecutiveErrors": 0
+      }
+    },
+    {
+      "id": "f720dba5-5c56-4203-a8a8-4d14a3d20e7e",
+      "agentId": "main",
+      "name": "每月日志清理",
+      "enabled": true,
+      "createdAtMs": 1771087226050,
+      "updatedAtMs": 1771087226050,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 3 1 * *",
+        "tz": "Asia/Shanghai"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "执行任务：每月日志清理\n\n1. 检查~/.openclaw/logs/目录大小\n2. 删除超过30天的旧日志文件\n3. 删除~/.openclaw/workspace/memory/下超过3个月的旧文件\n4. 释放空间统计",
+        "model": "nvidia/moonshotai/kimi-k2.5",
+        "timeoutSeconds": 180
+      },
+      "delivery": {
+        "mode": "announce"
+      },
+      "state": {
+        "nextRunAtMs": 1772305200000
+      }
+    },
+    {
+      "id": "f2d458a6-e302-4513-a2ef-5a8f9d74418b",
+      "agentId": "main",
+      "name": "EvoMap任务领取与执行",
+      "enabled": false,
+      "createdAtMs": 1771876538489,
+      "updatedAtMs": 1772086945454,
+      "schedule": {
+        "kind": "every",
+        "everyMs": 600000,
+        "anchorMs": 1771876538489
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "执行 EvoMap 完整任务流程：1.获取任务 2.领取任务 3.创建解决方案 4.发布知识包 5.提交完成。节点ID: node_openclaw_main",
+        "timeoutSeconds": 300,
+        "model": "nvidia/moonshotai/kimi-k2.5"
+      },
+      "delivery": {
+        "mode": "announce"
+      },
+      "state": {
+        "lastRunAtMs": 1772086538499,
+        "lastStatus": "ok",
+        "lastDurationMs": 14151,
+        "consecutiveErrors": 0
+      }
+    },
+    {
+      "id": "050fe488-fd47-4c8b-ae6b-29ca9fdfde66",
+      "agentId": "main",
+      "name": "工作日点餐提醒",
+      "enabled": true,
+      "createdAtMs": 1771986078883,
+      "updatedAtMs": 1772161003497,
+      "schedule": {
+        "expr": "55 10 * * 1-5",
+        "kind": "cron",
+        "tz": "Asia/Shanghai"
+      },
+      "sessionTarget": "main",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "systemEvent",
+        "text": "⏰ 点餐提醒：到时间点餐啦"
+      },
+      "state": {
+        "nextRunAtMs": 1772420100000,
+        "lastRunAtMs": 1772160900010,
+        "lastStatus": "ok",
+        "lastDurationMs": 103487,
+        "consecutiveErrors": 0
+      }
+    },
+    {
+      "id": "750ea8ad-0928-4f8a-ab50-4de07a4070b0",
+      "agentId": "main",
+      "name": "点餐提醒-每日",
+      "enabled": true,
+      "createdAtMs": 1771988752210,
+      "updatedAtMs": 1772161011199,
+      "schedule": {
+        "kind": "cron",
+        "expr": "55 10 * * *",
+        "tz": "Asia/Shanghai"
+      },
+      "sessionTarget": "main",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "systemEvent",
+        "text": "⏰ 点餐提醒：到时间点餐啦"
+      },
+      "state": {
+        "nextRunAtMs": 1772247300000,
+        "lastRunAtMs": 1772161003497,
+        "lastStatus": "ok",
+        "lastDurationMs": 7702,
+        "consecutiveErrors": 0
+      }
+    },
+    {
+      "id": "eb0e9353-540d-42f8-8b7d-bd8fd919c655",
+      "agentId": "main",
+      "name": "每日OpenClaw备份到GitHub",
+      "enabled": true,
+      "createdAtMs": 1771990477760,
+      "updatedAtMs": 1772178871786,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 12 * * *",
+        "tz": "Asia/Shanghai"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "执行每日OpenClaw备份到GitHub：\n\n运行优化后的备份脚本：\nbash ~/.openclaw/workspace/scripts/backup-to-github-optimized.sh\n\n脚本特点：\n1. 使用 rsync 增量同步，只传输变更文件\n2. 排除所有 node_modules 目录（约30MB）\n3. 排除所有 .git 目录\n4. 排除 Python 虚拟环境 venv\n5. 排除缓存文件 __pycache__, .pytest_cache\n6. 排除构建产物 dist, build, .next\n7. 排除大模型文件 *.gguf, *.bin, *.onnx\n8. 排除 agents 的 xdg-cache 缓存目录\n\n如果脚本执行失败，发送错误报告。",
+        "model": "nvidia/moonshotai/kimi-k2.5",
+        "timeoutSeconds": 1800
+      },
+      "delivery": {
+        "mode": "announce"
+      },
+      "state": {
+        "nextRunAtMs": 1772251200000,
+        "lastRunAtMs": 1772164800006,
+        "lastStatus": "error",
+        "lastDurationMs": 600054,
+        "consecutiveErrors": 2,
+        "lastError": "Error: cron: job execution timed out"
+      }
+    },
+    {
+      "id": "9b8238b9-e99d-4d84-9dac-90697a5c5213",
+      "agentId": "main",
+      "name": "EvoMap任务领取与执行",
+      "enabled": false,
+      "createdAtMs": 1772089118164,
+      "updatedAtMs": 1772090029998,
+      "schedule": {
+        "kind": "every",
+        "everyMs": 600000,
+        "anchorMs": 1771876538489
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "执行 EvoMap 完整任务流程：1.获取任务 2.领取任务 3.创建解决方案 4.发布知识包 5.提交完成。节点ID: node_openclaw_main。直接运行脚本：node /Users/puddy/.openclaw/workspace/evomap_run_with_main_node.js",
+        "timeoutSeconds": 300,
+        "model": "nvidia/moonshotai/kimi-k2.5"
+      },
+      "delivery": {
+        "mode": "announce"
+      },
+      "state": {
+        "lastRunAtMs": 1772089538500,
+        "lastStatus": "error",
+        "lastDurationMs": 98073,
+        "lastError": "cron announce delivery failed",
+        "consecutiveErrors": 1
+      }
+    }
+  ]
+}

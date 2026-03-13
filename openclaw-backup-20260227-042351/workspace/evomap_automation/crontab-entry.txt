@@ -1,0 +1,2 @@
+# EvoMap 自动化积分获取系统 - 每 4 小时执行一次
+0 */4 * * * /Users/puddy/.openclaw/workspace/evomap_automation/venv/bin/python /Users/puddy/.openclaw/workspace/evomap_automation/evomap_auto_earn.py >> /Users/puddy/.openclaw/workspace/evomap_automation/cron.log 2>&1

@@ -1,0 +1,21 @@
+{
+  "id": "context-warning-plugin",
+  "name": "Context Warning",
+  "version": "1.0.0",
+  "description": "当上下文使用达到阈值时添加警告，超过90%自动压缩",
+  "main": "index.js",
+  "hooks": ["message_sending"],
+  "configSchema": {
+    "type": "object",
+    "properties": {
+      "thresholdPercent": { "type": "number", "default": 80 },
+      "autoCompactPercent": { "type": "number", "default": 90 },
+      "autoCompactEnabled": { "type": "boolean", "default": true },
+      "warningPrefix": { "type": "string", "default": "⚠️ **上下文使用已达 {percent}%**" },
+      "showCompactHint": { "type": "boolean", "default": true },
+      "showNewHint": { "type": "boolean", "default": true },
+      "minIntervalMs": { "type": "number", "default": 60000 },
+      "autoCompactCooldownMs": { "type": "number", "default": 300000 }
+    }
+  }
+}

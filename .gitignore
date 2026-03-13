@@ -1,0 +1,35 @@
+# OpenClaw Workspace Backup - Gitignore
+
+# 敏感信息
+*.key
+*.pem
+*.secret
+.env
+config/secrets.json
+
+# 大文件/缓存
+*.log
+logs/
+cache/
+node_modules/
+*.pyc
+__pycache__/
+
+# 临时文件
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db
+
+# 运行时数据
+*.pid
+*.sock
+
+# 备份排除（避免循环）
+backup/
+archives/
+
+# 可选：排除大型二进制文件
+*.zip
+*.tar.gz
+*.rar

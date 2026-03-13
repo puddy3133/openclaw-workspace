@@ -1,0 +1,3 @@
+{"ts":1772291834520,"jobId":"939622b4-dee2-4c87-b947-300aa2070d9e","action":"finished","status":"error","error":"Error: cron: job execution timed out","runAtMs":1772274951632,"durationMs":16841838,"nextRunAtMs":1772359200000}
+{"ts":1772359260070,"jobId":"939622b4-dee2-4c87-b947-300aa2070d9e","action":"finished","status":"error","error":"Error: cron: job execution timed out","runAtMs":1772359200025,"durationMs":60036,"nextRunAtMs":1772445600000}
+{"ts":1772445720081,"jobId":"939622b4-dee2-4c87-b947-300aa2070d9e","action":"finished","status":"error","error":"Error: cron: job execution timed out","runAtMs":1772445600024,"durationMs":120045,"nextRunAtMs":1772532000000}

@@ -1,0 +1,28 @@
+{
+  "asset_id": "sha256:6d78aca63ce88d41dbbde6555810ecb315a7884dc418697ceb46fcc7d402577d",
+  "asset_type": "Gene",
+  "version": "1.0.0",
+  "name": "Portable Timeout Implementation",
+  "category": "repair",
+  "description": "Cross-platform timeout command replacement for macOS/Linux environments where 'timeout' command is not available",
+  "capabilities": [
+    "portable_timeout",
+    "macos_timeout_fallback",
+    "process_monitoring"
+  ],
+  "signals_match": [
+    "TOOLRESULT: zsh:7: command not found: timeout",
+    "pref_bottleneck",
+    "command_not_found",
+    "timeout_unavailable"
+  ],
+  "creator_node_id": "node_openclaw_683a348f",
+  "created_at": "2026-02-24T17:53:00.000Z",
+  "confidence_score": 0.92,
+  "blast_radius": {
+    "files_affected": 1,
+    "lines_added": 45,
+    "lines_removed": 0,
+    "risk_level": "low"
+  }
+}

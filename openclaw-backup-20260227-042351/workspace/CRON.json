@@ -1,0 +1,57 @@
+{
+  "jobs": [
+    {
+      "id": "daily-summary",
+      "name": "Daily Summary",
+      "schedule": {
+        "kind": "every",
+        "every": "1d",
+        "anchor": "2026-02-24T16:13:03.100Z"
+      },
+      "payload": {
+        "message": "Please provide a daily summary of activities."
+      },
+      "enabled": false
+    },
+    {
+      "id": "memory-extractor",
+      "name": "Memory Extractor",
+      "schedule": {
+        "kind": "cron",
+        "cron": "0 13 * * *",
+        "timezone": "Asia/Shanghai"
+      },
+      "payload": {
+        "command": "node scripts/extract_memory.js"
+      },
+      "enabled": true
+    },
+    {
+      "id": "lunch-reminder",
+      "name": "订餐提醒",
+      "schedule": {
+        "kind": "cron",
+        "cron": "55 10 * * 1-5",
+        "timezone": "Asia/Shanghai"
+      },
+      "payload": {
+        "message": "🍱 该订餐啦！记得提前点好午餐~"
+      },
+      "enabled": true
+    },
+    {
+      "id": "backup-to-github",
+      "name": "OpenClaw 备份同步",
+      "schedule": {
+        "kind": "cron",
+        "cron": "30 12 * * *",
+        "timezone": "Asia/Shanghai"
+      },
+      "payload": {
+        "command": "bash scripts/backup-to-github.sh"
+      },
+      "enabled": true
+    }
+  ],
+  "updatedAt": "2026-02-26T14:10:00.000Z"
+}

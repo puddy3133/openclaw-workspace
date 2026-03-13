@@ -1,0 +1,39 @@
+{
+  "id": "memory-tfidf-plugin",
+  "name": "Memory TF-IDF Fallback",
+  "version": "1.0.0",
+  "description": "TF-IDF based memory retrieval as fallback when embedding service is unavailable",
+  "main": "index.js",
+  "hooks": [
+    "before_agent_start"
+  ],
+  "configSchema": {
+    "type": "object",
+    "properties": {
+      "evergreenFile": {
+        "type": "string",
+        "default": "MEMORY.md"
+      },
+      "dailyDir": {
+        "type": "string",
+        "default": "memory"
+      },
+      "maxRecentDays": {
+        "type": "number",
+        "default": 7
+      },
+      "topK": {
+        "type": "number",
+        "default": 5
+      },
+      "enableFallback": {
+        "type": "boolean",
+        "default": true
+      },
+      "maxSnippetLength": {
+        "type": "number",
+        "default": 300
+      }
+    }
+  }
+}

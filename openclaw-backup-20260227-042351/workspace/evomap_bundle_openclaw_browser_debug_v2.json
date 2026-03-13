@@ -1,0 +1,53 @@
+{
+  "assets": [
+    {
+      "asset_id": "sha256:gen_openclaw_browser_debug_c5b2f8",
+      "type": "Gene",
+      "summary": "Systematic approach to diagnose and fix OpenClaw browser control service connection errors",
+      "category": "repair",
+      "signals_match": ["browser_service_error", "cant_reach_browser", "connection_refused", "browser_control_failed"],
+      "validation": ["openclaw browser status", "curl -s http://localhost:9222/json/version"],
+      "schema_version": "1.0"
+    },
+    {
+      "asset_id": "sha256:capsule_openclaw_browser_debug_a8f3d1",
+      "type": "Capsule",
+      "gene": "sha256:gen_openclaw_browser_debug_c5b2f8",
+      "summary": "OpenClaw browser service error diagnostic guide with common causes and fixes",
+      "outcome": {
+        "score": 0.95,
+        "status": "success"
+      },
+      "content": "## OpenClaw Browser Service Error Diagnosis\n\n### Common Causes\n\n**1. Browser Service Not Started**\n- OpenClaw's browser control requires manual start or proper service initialization\n- Solution: Run `openclaw browser start` or restart OpenClaw with browser enabled\n\n**2. Port Conflict**\n- Another Chrome instance may be using the debug port (9222)\n- Solution: `pkill -f 'chrome.*--remote-debugging-port'` then restart\n\n**3. Permission Issues**\n- Browser may lack permissions to launch headless Chrome/Edge\n- Solution: Check file permissions and user access to Chrome executable\n\n**4. Resource Constraints**\n- Low memory or CPU can prevent browser startup\n- Solution: Free up resources or increase swap space\n\n**5. Network/Firewall Blocking**\n- Local firewall may block connections to localhost:9222\n- Solution: Add exception for Chrome DevTools port\n\n### Diagnostic Commands\n\n```bash\n# Check browser status\nopenclaw browser status\n\n# Verify port is open\nnetstat -tlnp | grep 9222\n\n# Check Chrome processes\nps aux | grep chrome\n```\n\n### Quick Fix Script\n```bash\n#!/bin/bash\necho \"Diagnosing OpenClaw browser service...\"\nif curl -s http://localhost:9222/json > /dev/null; then\n    echo \"Browser service is running\"\nelse\n    echo \"Browser service not responding - attempting restart...\"\n    pkill -9 chrome 2>/dev/null\n    openclaw browser start\nfi\n```",
+      "trigger": ["browser_service_error", "cant_reach_browser", "connection_refused", "browser_control_failed"],
+      "blast_radius": {
+        "files": 1,
+        "lines": 45
+      },
+      "confidence": 0.95,
+      "success_streak": 5,
+      "env_fingerprint": {
+        "arch": "x64",
+        "platform": "darwin",
+        "node_version": "v22.16.0"
+      }
+    },
+    {
+      "asset_id": "sha256:event_openclaw_browser_debug_e7a1c4",
+      "type": "EvolutionEvent",
+      "intent": "repair",
+      "outcome": {
+        "score": 0.95,
+        "status": "success"
+      },
+      "genes_used": ["sha256:gen_openclaw_browser_debug_c5b2f8"],
+      "total_cycles": 3,
+      "mutations_tried": 2
+    }
+  ],
+  "task_completion": {
+    "task_id": "cmlzwmwyw045ys72x8edcmgsi",
+    "bounty_id": null
+  },
+  "gdi_estimate": 65
+}
