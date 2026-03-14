@@ -14,9 +14,11 @@ Before doing anything else:
 2. Read `USER.md` — this is who you're helping
 3. **获取真实当前日期** — 使用 `date` 命令获取北京时间 (Asia/Shanghai)，格式 YYYY-MM-DD
 4. **Run启动检查** — 检查遗漏的定时任务（执行 `~/.openclaw/workspace/scripts/startup-check.sh`）
-5. Read `memory/YYYY-MM-DD.md` (**真实今日** + 昨日) for recent context
+5. Read `memory/INDEX.md` — 记忆的渐进式披露入口
+6. Read `memory/NOW.md` — 当前近3天优先级
+7. Read `memory/YYYY-MM-DD.md` (**真实今日** + 昨日) for recent context
    - ⚠️ **重要**：如果当日日志不存在，立即创建，**禁止**用旧文件凑合
-6. **If in MAIN SESSION** (direct chat with your human): Also read `MEMORY.md`
+8. **If in MAIN SESSION** (direct chat with your human): Also read `MEMORY.md`
 
 Don't ask permission. Just do it.
 
@@ -45,9 +47,59 @@ openclaw cron run f720dba5-5c56-4203-a8a8-4d14a3d20e7e
 You wake up fresh each session. These files are your continuity:
 
 - **Daily notes:** `memory/YYYY-MM-DD.md` (create `memory/` if needed) — raw logs of what happened
+- **Current priorities:** `memory/NOW.md` — near-term priorities (next 3 days)
+- **Knowledge index:** `memory/INDEX.md` — progressive disclosure entry point
 - **Long-term:** `MEMORY.md` — your curated memories, like a human's long-term memory
 
 Capture what matters. Decisions, context, things to remember. Skip the secrets unless asked to keep them.
+
+### 🧠 Memory System Architecture
+
+Based on layered classification + progressive disclosure:
+
+```
+├── MEMORY.md              # Core conclusions (≤20 items)
+├── memory/
+│   ├── INDEX.md           # Progressive disclosure index
+│   ├── NOW.md             # Current priorities (3 days)
+│   ├── TASKS.md           # Complete task list
+│   ├── STATE.md           # Today's status
+│   ├── YYYY-MM-DD.md      # Daily logs
+│   ├── lessons/           # Pitfalls + solutions
+│   ├── decisions/         # Major decisions
+│   ├── projects/          # Project status
+│   └── people/            # People profiles
+```
+
+### 📝 Memory Routing Rules
+
+When new content is generated, route it according to:
+
+```
+New content
+↓
+Is it a pitfall + solution? (reusable next time)
+├─ Yes → memory/lessons/
+└─ No → Continue
+↓
+Is it a major decision? (affects future direction)
+├─ Yes → memory/decisions/YYYY-MM-DD-slug.md
+└─ No → Continue
+↓
+Is it a project status change?
+├─ Yes → memory/projects/PROJECT.md
+└─ No → Continue
+↓
+Is it daily routine?
+├─ Yes → memory/YYYY-MM-DD.md
+└─ No → May belong elsewhere
+```
+
+**Write Rules:**
+- ✅ When completing a task/decision, immediately write to daily log
+- ✅ Use append mode for `memory/` files; only `memory/NOW.md` can be overwritten
+- ✅ Must CRUD validate before writing to knowledge files (read first, then write)
+- ✅ Write substantive content with decisions/lessons
 
 ### 🧠 MEMORY.md - Your Long-Term Memory
 
@@ -273,10 +325,15 @@ When recording tasks, issues, or to-do items, follow this strict hierarchy:
 
 | File | Purpose | Do NOT Use For |
 |------|---------|----------------|
+| **INDEX.md** | Progressive disclosure index, quick navigation | Detailed content |
+| **NOW.md** | Current priorities (next 3 days) | Long-term backlog |
 | **TASKS.md** | All active tasks, to-dos, and issue tracking | Temporary session state |
 | **STATE.md** | Current session context and real-time status | Historical issues or backlog |
 | **MEMORY.md** | Long-term knowledge, decisions, lessons learned | Temporary to-dos or daily logs |
 | **YYYY-MM-DD.md** | Daily raw logs of what happened | Ongoing issues (not tied to specific dates) |
+| **lessons/** | Pitfalls + solutions (reusable) | Research summaries |
+| **decisions/** | Major decision records | Daily routines |
+| **projects/** | Project status tracking | Complete project docs |
 
 ### Issue Tracking Workflow
 
@@ -311,4 +368,4 @@ When recording tasks, issues, or to-do items, follow this strict hierarchy:
 
 ---
 
-*Last updated: 2026-03-01 - Added memory file organization rules*
+*Last updated: 2026-03-14 - Optimized memory system architecture based on layered classification + progressive disclosure*
