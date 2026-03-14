@@ -1,0 +1,258 @@
+{
+  "providers": {
+    "nvidia": {
+      "baseUrl": "https://integrate.api.nvidia.com/v1",
+      "api": "openai-completions",
+      "models": [
+        {
+          "id": "nvidia/llama-3.1-nemotron-70b-instruct",
+          "name": "NVIDIA Llama 3.1 Nemotron 70B Instruct",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 131072,
+          "maxTokens": 4096
+        },
+        {
+          "id": "meta/llama-3.3-70b-instruct",
+          "name": "Meta Llama 3.3 70B Instruct",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 131072,
+          "maxTokens": 4096
+        },
+        {
+          "id": "nvidia/mistral-nemo-minitron-8b-8k-instruct",
+          "name": "NVIDIA Mistral NeMo Minitron 8B Instruct",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 8192,
+          "maxTokens": 2048
+        }
+      ],
+      "apiKey": "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"
+    },
+    "kimi-coding": {
+      "baseUrl": "https://api.kimi.com/coding",
+      "api": "anthropic-messages",
+      "models": [
+        {
+          "id": "k2p5",
+          "name": "k2p5",
+          "reasoning": false,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 262144,
+          "maxTokens": 32768,
+          "api": "anthropic-messages"
+        }
+      ],
+      "apiKey": "sk-kimi-ft8IBHeW9OGeeTErb8eJrVy2wwDt3SkzKUUV5CdJxbNByS2mdQiK1VF53uOqlwKv"
+    },
+    "claude-sonnet": {
+      "baseUrl": "http://154.201.73.179:3000",
+      "apiKey": "sk-pMgCSN3kpNTfLEe5lWzmCzDehUpbDfsEiuMNuRWwLIEXVBt8",
+      "api": "openai-completions",
+      "models": [
+        {
+          "id": "claude-sonnet-4-6",
+          "name": "Claude Sonnet 4.6",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 200000,
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        }
+      ]
+    },
+    "SKCDN": {
+      "baseUrl": "http://154.201.73.179:3000/v1/chat/completions",
+      "apiKey": "sk-pMgCSN3kpNTfLEe5lWzmCzDehUpbDfsEiuMNuRWwLIEXVBt8",
+      "api": "openai-completions",
+      "models": [
+        {
+          "id": "claude-sonnet-4-6",
+          "name": "Claude Sonnet 4.6",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 262000,
+          "maxTokens": 32768,
+          "api": "openai-completions"
+        }
+      ]
+    },
+    "Zz": {
+      "baseUrl": "https://integrate.api.nvidia.com/v1",
+      "apiKey": "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",
+      "api": "openai-completions",
+      "models": [
+        {
+          "id": "qwen/qwen3.5-397b-a17b",
+          "name": "qwen3.5-397b-a17b",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0.0000015,
+            "output": 0.000004,
+            "cacheRead": 0.0000015,
+            "cacheWrite": 0.000004
+          },
+          "contextWindow": 200000,
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        },
+        {
+          "id": "z-ai/glm4.7",
+          "name": "GLM4.7",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 5e-7,
+            "output": 0.0000015,
+            "cacheRead": 5e-7,
+            "cacheWrite": 0.0000015
+          },
+          "contextWindow": 128000,
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        },
+        {
+          "id": "moonshotai/kimi-k2.5",
+          "name": "Kimi K2.5",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0.000001,
+            "output": 0.000003,
+            "cacheRead": 0.000001,
+            "cacheWrite": 0.000003
+          },
+          "contextWindow": 128000,
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        },
+        {
+          "id": "minimaxai/minimax-m2.1",
+          "name": "minimax-m2.1",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0.000001,
+            "output": 0.000003,
+            "cacheRead": 0.000001,
+            "cacheWrite": 0.000003
+          },
+          "contextWindow": 128000,
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        },
+        {
+          "id": "minimaxai/minimax-m2.5",
+          "name": "minimax-m2.5",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0.000001,
+            "output": 0.000003,
+            "cacheRead": 0.000001,
+            "cacheWrite": 0.000003
+          },
+          "contextWindow": 128000,
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        },
+        {
+          "id": "z-ai/glm5",
+          "name": "GLM5",
+          "reasoning": true,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 5e-7,
+            "output": 0.0000015,
+            "cacheRead": 5e-7,
+            "cacheWrite": 0.0000015
+          },
+          "contextWindow": 128000,
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        },
+        {
+          "id": "meta/llama-3.1-405b-instruct",
+          "name": "Llama 3.1 405B",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0.0000027,
+            "output": 0.0000027,
+            "cacheRead": 0.0000027,
+            "cacheWrite": 0.0000027
+          },
+          "contextWindow": 131072,
+          "maxTokens": 4096,
+          "api": "openai-completions"
+        }
+      ]
+    }
+  }
+}

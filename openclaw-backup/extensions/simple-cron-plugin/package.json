@@ -1,0 +1,12 @@
+{
+  "name": "@openclaw/simple-cron",
+  "version": "1.0.0",
+  "description": "Simple cron plugin for OpenClaw",
+  "main": "index.js",
+  "openclaw": {
+    "plugin": {
+      "id": "simple-cron-plugin",
+      "hooks": []
+    }
+  }
+}

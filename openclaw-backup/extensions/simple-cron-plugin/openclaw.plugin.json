@@ -1,0 +1,33 @@
+{
+  "id": "simple-cron-plugin",
+  "name": "Simple Cron",
+  "version": "1.0.0",
+  "description": "Simplified cron scheduling with at/every types",
+  "main": "index.js",
+  "hooks": [],
+  "configSchema": {
+    "type": "object",
+    "properties": {
+      "cronFile": {
+        "type": "string",
+        "default": "CRON.json",
+        "description": "Cron配置文件路径"
+      },
+      "checkIntervalSeconds": {
+        "type": "number",
+        "default": 60,
+        "description": "检查间隔（秒）"
+      },
+      "maxRetries": {
+        "type": "number",
+        "default": 5,
+        "description": "最大重试次数"
+      },
+      "enableAutoDisable": {
+        "type": "boolean",
+        "default": true,
+        "description": "是否启用自动禁用"
+      }
+    }
+  }
+}

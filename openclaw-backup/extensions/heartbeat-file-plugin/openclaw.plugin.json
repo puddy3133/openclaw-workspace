@@ -1,0 +1,40 @@
+{
+  "id": "heartbeat-file-plugin",
+  "name": "Heartbeat File-Driven",
+  "version": "1.0.0",
+  "description": "支持 HEARTBEAT.md 文件驱动的心跳配置",
+  "main": "index.js",
+  "configSchema": {
+    "type": "object",
+    "properties": {
+      "heartbeatFile": {
+        "type": "string",
+        "default": "HEARTBEAT.md"
+      },
+      "intervalSeconds": {
+        "type": "number",
+        "default": 300
+      },
+      "activeHoursStart": {
+        "type": "number",
+        "default": 9
+      },
+      "activeHoursEnd": {
+        "type": "number",
+        "default": 22
+      },
+      "dedupWindowSeconds": {
+        "type": "number",
+        "default": 86400
+      },
+      "timezone": {
+        "type": "string",
+        "default": "Asia/Shanghai"
+      },
+      "okToken": {
+        "type": "string",
+        "default": "HEARTBEAT_OK"
+      }
+    }
+  }
+}
