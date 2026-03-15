@@ -1,9 +1,9 @@
 {
   "backupVersion": "1.1",
-  "backupDate": "2026-03-14T18:23:57Z",
+  "backupDate": "2026-03-14T18:38:48Z",
   "sourcePath": "/Users/puddy/.openclaw",
   "backupPath": "/Users/puddy/.openclaw/workspace/openclaw-backup",
-  "archivePath": "null",
+  "archivePath": "/Users/puddy/.openclaw/workspace/openclaw-backup-20260314-143847.tar.gz",
   "excludedItems": [
     "agents/main/qmd/sessions/ - 会话历史",
     "agents/main/qmd/xdg-cache/ - QMD向量缓存",

@@ -145,3 +145,42 @@ echo "  3. 飞书授权（如需要）"
 
 # 输出备份目录名供后续使用
 echo "$BACKUP_DIR" > .last_backup_dir
+
+# 15. 推送到 GitHub 备份仓库
+echo ""
+echo "📤 推送到 GitHub 备份仓库..."
+
+# 进入备份目录
+cd "$BACKUP_DIR"
+
+# 初始化 git 仓库（如果不存在）
+if [ ! -d ".git" ]; then
+    git init
+    git remote add origin git@github.com:puddy3133/openclaw-backup.git 2>/dev/null || true
+fi
+
+# 确保远程仓库正确
+if ! git remote get-url origin 2>/dev/null | grep -q "openclaw-backup"; then
+    git remote remove origin 2>/dev/null || true
+    git remote add origin git@github.com:puddy3133/openclaw-backup.git
+fi
+
+# 添加所有文件
+git add -A
+
+# 提交（如果有变更）
+if git diff --cached --quiet; then
+    echo "  没有变更需要提交"
+else
+    git commit -m "backup: $(date '+%Y-%m-%d %H:%M:%S')"
+    
+    # 推送到 GitHub
+    if git push -u origin main 2>/dev/null || git push -u origin master 2>/dev/null; then
+        echo "  ✅ 已推送到 puddy3133/openclaw-backup"
+    else
+        echo "  ⚠️  推送失败，请检查 SSH 密钥或网络"
+    fi
+fi
+
+# 返回原目录
+cd ..
