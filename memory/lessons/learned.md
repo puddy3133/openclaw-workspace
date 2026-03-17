@@ -31,3 +31,9 @@
 
 - **web_search 降级路径**：当 Kimi Search 返回 401/失败时，自动使用 `research-router` skill 的 `baidu-web` 搜索作为备选方案
 - **BAIDU_API_KEY 已配置**：可立即调用，无需额外设置
+
+## 2026-03-16 03:03
+
+psutil.cpu_percent需要interval参数才能获得准确值，首次调用返回0是正常现象
+
+**场景**: 系统监控脚本开发

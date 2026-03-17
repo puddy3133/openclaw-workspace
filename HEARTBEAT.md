@@ -1,48 +1,69 @@
-# Heartbeat Instructions
+# Heartbeat 执行清单（强制版）
 
-Check the following items and report ONLY if something needs attention.
+> 基于彬子"三道防线"理论，心跳不是"检查"，是"必须执行"。
 
-## Check Items
+## 执行频率
 
-### 1. 定时任务遗漏检查
-- 检查 `memory/cron-reports/` 目录，昨日有无定时任务失败报告
-- 检查昨日 `memory/YYYY-MM-DD.md` 是否存在，不存在则提醒
-- 如果是周一，检查上周 `memory/weekly/YYYY-Www.md` 是否存在
+- 每 **60 分钟** 一次
+- 深夜（23:00-08:00）跳过非紧急项
 
-### 2. 待办提醒
-- 检查 `memory/TASKS.md` 中有无触发条件已满足的待解决问题
-- 检查有无用户设置的到期提醒
-- 快到期的待办提前提醒
+## 每次心跳必做
 
-### 3. 每日总结（下班后）
-- 如果是 18:00+ 且今日无每日总结发送，准备简洁的一句话工作回顾+明天待办
+### 1. 记忆补录（强制）
 
-### 4. 跟进事项
-- 检查近期对话是否有承诺但未完成的事项
+不是"检查是否需要"，是"必须补录"。
 
-### 5. 记忆日志检查
-- 今日 `memory/YYYY-MM-DD.md` 是否存在，如不存在则新建
+- 读取 `memory/YYYY-MM-DD.md`
+- 检查条目数（阈值：至少包含启动记录 + 任务记录）
+- 如条目不足 → **自动补录**：
+  - 读取最近 Session 历史
+  - 提取未记录的任务
+  - 按规则分类写入
+  - 标记为"【心跳补录】"
+- 通知用户："今日日志已补充 X 条"
 
-### 6. 记忆整理
-- 扫描近期 daily logs，识别值得长期保留的内容
-- 将重要信息整理并更新到 MEMORY.md
+### 2. 定时任务检查（强制）
 
-### 7. 邮件/日程检查
-- 检查是否有紧急邮件未读
-- 检查未来24小时内重要日程
-- 有紧急事项即时提醒
+- 检查 `memory/cron-reports/` 昨日报告
+- 如有失败 → 立即重试或通知
+- 检查今日日志是否存在 → 不存在则创建
+
+### 3. 待办提醒（强制）
+
+- 检查 `memory/TASKS.md` 到期项
+- 检查 `memory/NOW.md` 优先级
+- 立即提醒（不等待）
+
+### 4. Session 扫描（可选）
+
+- 扫描近期对话
+- 识别承诺但未完成的事项
+- 如有 → 提醒
+
+## 夜间模式（23:30 daily-reflection）
+
+### 批量整理
+- 生成今日摘要
+- 归档 30 天前记忆 → `memory/archive/`
+- 更新 `memory/INDEX.md`
+- 更新关键词索引
+
+### 索引更新
+- 扫描今日新增内容
+- 提取关键词
+- 更新 `memory/.index/keywords.json`
 
 ## Response Rules
 
-- 无需汇报的事项，只回复：HEARTBEAT_OK
+- 无需汇报的事项，只回复：**HEARTBEAT_OK**
 - 有事项汇报时直接说明，不要以"我检查了..."开头
-- 优先级：定时任务失败 > 到期提醒 > 待办问题 > 每日总结
+- 优先级：定时任务失败 > 记忆补录 > 待办提醒 > 其他
 
 ## 当前定时任务清单（CRON.json）
 
 | 任务 | 执行时间 | 说明 |
 |------|---------|------|
-| daily-reflection | 每天 23:30 (CST) | 每日自我复盘 |
+| daily-reflection | 每天 23:30 (CST) | 每日自我复盘 + 索引更新 |
 | daily-summary | 每天 18:00 (CST) | 每日工作汇总 |
 | backup-to-github | 每天 12:30 (CST) | OpenClaw 备份 |
 | session-archiver | 每天 03:00 (CST) | 历史会话归档 |
@@ -50,3 +71,6 @@ Check the following items and report ONLY if something needs attention.
 | weekly-evolution | 每周日 10:00 (CST) | 每周自我完善 |
 
 手动触发：`openclaw cron run <job-id>`
+
+---
+*更新时间：2026-03-16*

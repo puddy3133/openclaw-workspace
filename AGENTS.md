@@ -32,15 +32,59 @@ Don't ask permission. Just do it.
 
 补救命令：
 ```bash
-# 每日记忆日志
-openclaw cron run 939622b4-dee2-4c87-b947-300aa2070d9e
+# 手动触发指定的 cron 任务
+openclaw cron run <job-id>
 
-# 每周记忆回顾
-openclaw cron run 70953011-f6e0-4b0f-b11d-a9b1ef4ac8e0
-
-# 每月日志清理
-openclaw cron run f720dba5-5c56-4203-a8a8-4d14a3d20e7e
+# 查看所有任务 ID：cat ~/.openclaw/cron/jobs.json | jq '.[].id'
+# 常用任务 ID：
+#   create-daily-log        — 每日记忆日志
+#   daily-reflection        — 每日自我复盘
+#   log-cleanup             — 历史文件清理
 ```
+
+## 任务执行流程（强制版）
+
+基于四层强制记忆防御体系，每个任务必须：
+
+### 1. 接收任务
+- 理解需求
+- 确认预期产出
+
+### 2. 执行任务
+- 按计划执行
+- 记录关键节点
+
+### 3. 强制归档（不可跳过）
+- 提取任务信息
+- 按规则分类写入对应位置
+- 确认写入成功
+- **不归档 = 任务未完成**
+
+### 4. 反馈用户
+- 返回任务结果
+- 附带归档摘要："已记录到 memory/YYYY-MM-DD.md"
+
+## Session 生命周期
+
+### 启动
+1. Read `SOUL.md` — 知道自己是谁
+2. Read `USER.md` — 知道用户是谁
+3. 获取真实当前日期
+4. Run 启动检查
+5. Read `memory/INDEX.md`
+6. Read `memory/NOW.md`
+7. Read `memory/YYYY-MM-DD.md`（今日 + 昨日）
+8. If in MAIN SESSION: Read `MEMORY.md`
+
+### 运行
+- 执行任务（含强制归档）
+
+### 结束前扫描
+- 检查今日日志完整性
+- 补录遗漏项
+- 生成 Session 摘要
+
+### 正式结束
 
 ## Memory
 
@@ -217,6 +261,72 @@ Reactions are lightweight social signals. Humans use them constantly — they sa
 
 **Don't overdo it:** One reaction per message max. Pick the one that fits best.
 
+## SubAgents - 子 Agent 统筹
+
+你拥有三名专属下属子 Agent，位于 `~/.openclaw/subagents/`：
+
+| 子 Agent | 职责 | 调用方式 |
+|----------|------|----------|
+| **@planner** | 需求分析、步骤拆解、功能规划、系统设计 | `sessions_spawn({ agentId: "planner", task: "..." })` |
+| **@coder** | 代码编写、修复、技术实现 | `sessions_spawn({ agentId: "coder", task: "..." })` |
+| **@inspector** | 组件审计、质量检查、优化合并、生态体检 | `sessions_spawn({ agentId: "inspector", task: "...", meta: { mode: "audit" } })` |
+
+### 调用规则
+- 复杂任务（代码、架构、工具管理）→ 外包给子 Agent
+- 简单任务（闲聊、查天气）→ 自己处理
+- 工作流程：发包 → 子 Agent 执行 → 接收结果 → 汇总交付
+
+### Agent 间 Handoff 协议
+
+当任务需要多个子 Agent 协作时，遵循以下标准交接流程：
+
+**@planner → @coder（规划转实现）**
+1. planner 产出规划文档到 `subagents/planner/workspace/output/`
+2. 主 Agent 读取规划文档，转发给 coder
+3. coder 调用时 task 中必须包含：规划文档路径 + 技术栈 + 验收标准
+4. 示例：
+```javascript
+sessions_spawn({
+  agentId: "coder",
+  task: "按照规划文档 ~/.openclaw/subagents/planner/workspace/output/plan-xxx.md 实现功能。技术栈：Node.js + TypeScript。验收标准：代码可直接运行，包含错误处理。"
+})
+```
+
+**@coder → @inspector（实现转审计）**
+1. coder 产出代码到 `subagents/coder/workspace/output/`
+2. 主 Agent 读取产出，触发 inspector 审计
+3. inspector 调用时 task 中必须包含：待审计文件路径 + 审计维度
+4. 示例：
+```javascript
+sessions_spawn({
+  agentId: "inspector",
+  task: "审计 coder 新产出的代码 ~/.openclaw/subagents/coder/workspace/output/xxx.js。审计维度：安全性、代码质量、与现有系统兼容性。",
+  meta: { mode: "audit" }
+})
+```
+
+**@inspector 定期扫描（Cron 触发）**
+- 每周一 14:00 自动执行全生态优化扫描
+- 无需 handoff，独立读取系统配置并输出报告
+- 结果推送飞书
+
+### 子 Agent 文件结构
+```
+~/.openclaw/subagents/{agent}/
+├── AGENT.md              # 角色定义（简版）
+├── README.md             # 使用指南
+├── config.json           # 配置（模型、能力、系统提示词）
+├── SOUL.md               # 身份定义（完整版，启动时首读）
+├── MEMORY.md             # 专属记忆索引
+└── workspace/            # 独立工作空间
+    ├── SKILL.md          # 技能定义 + 工具清单
+    ├── STARTUP.md        # 启动流程
+    ├── CHECKLIST.md      # 执行清单
+    ├── STATE.md          # 当前状态
+    ├── output/           # 产出目录
+    └── memory/           # 记忆目录
+```
+
 ## Tools
 
 Skills provide your tools. When you need one, check its `SKILL.md`. Keep local notes (camera names, SSH details, voice preferences) in `TOOLS.md`.
@@ -368,4 +478,4 @@ When recording tasks, issues, or to-do items, follow this strict hierarchy:
 
 ---
 
-*Last updated: 2026-03-14 - Optimized memory system architecture based on layered classification + progressive disclosure*
+*Last updated: 2026-03-16 - Fixed stale cron IDs, unified subagent handoff protocol, updated memory architecture*
