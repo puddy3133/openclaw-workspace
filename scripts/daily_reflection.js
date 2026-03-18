@@ -44,36 +44,48 @@ const LINE_LIMITS = { rules: 80, decisions: 80, learned: 80, principles: 50, 'cr
 // ─── API ────────────────────────────────────────────────────────────────────
 
 function loadApiConfig() {
-    // 读取 openclaw.json 获取主模型配置
+    // 读取 openclaw.json 获取模型配置
     try {
-        const cfg = JSON.parse(fs.readFileSync(
-            path.join(homeDir, '.openclaw', 'openclaw.json'), 'utf8'
-        ));
-        const primaryModel = cfg.agents?.defaults?.model?.primary || 'kimi-coding/k2p5';
+        const configPath = path.join(homeDir, '.openclaw', 'openclaw.json');
+        if (!fs.existsSync(configPath)) return null;
 
-        // 解析模型 provider/name
-        const [provider, ...modelParts] = primaryModel.split('/');
-        const modelName = modelParts.join('/');
+        const cfg = JSON.parse(fs.readFileSync(configPath, 'utf8'));
+        const primary = cfg.agents?.defaults?.model?.primary;
+        const fallbacks = cfg.agents?.defaults?.model?.fallbacks || [];
 
-        // 获取对应 provider 的配置
-        const providerCfg = cfg.models?.providers?.[provider];
-        if (!providerCfg) {
-            throw new Error(`Provider ${provider} not found`);
+        const modelList = [];
+        if (primary) modelList.push(primary);
+        modelList.push(...fallbacks);
+
+        if (modelList.length === 0) {
+            console.error('[daily-reflection] No models configured in openclaw.json');
+            return null;
         }
 
-        let apiKey = providerCfg.apiKey || '';
-        // 处理环境变量引用
-        if (apiKey.startsWith('${') && apiKey.endsWith('}')) {
-            const envVar = apiKey.slice(2, -1);
-            apiKey = process.env[envVar] || '';
-        }
+        const resolveProvider = (modelId) => {
+            const [provider, ...modelParts] = modelId.split('/');
+            const modelName = modelParts.join('/');
+            const providerCfg = cfg.models?.providers?.[provider];
+            if (!providerCfg) return null;
+
+            let apiKey = providerCfg.apiKey || '';
+            if (apiKey.startsWith('${') && apiKey.endsWith('}')) {
+                const envVar = apiKey.slice(2, -1);
+                apiKey = process.env[envVar] || '';
+            }
+
+            return {
+                provider,
+                model: modelName,
+                baseUrl: providerCfg.baseUrl,
+                apiKey,
+                api: providerCfg.api || 'openai-completions'
+            };
+        };
 
         return {
-            provider,
-            model: modelName,
-            baseUrl: providerCfg.baseUrl,
-            apiKey,
-            api: providerCfg.api || 'openai-completions'
+            modelList,
+            resolveProvider
         };
     } catch (e) {
         console.error('[daily-reflection] Failed to load config:', e.message);
@@ -283,17 +295,13 @@ async function dailyReflection() {
         return { skipped: true };
     }
 
-    const apiConfig = loadApiConfig();
-    if (!apiConfig || !apiConfig.apiKey) {
-        console.error('[daily-reflection] No API config or key. Writing basic log.');
-        fs.appendFileSync(
-            path.join(workspaceDir, 'memory', 'lessons', 'learned.md'),
-            `\n- [${dateStr}] 复盘跳过（无 API Key）\n`
-        );
-        return { error: 'no-api-key' };
+    const configData = loadApiConfig();
+    if (!configData || configData.modelList.length === 0) {
+        console.error('[daily-reflection] No API config available.');
+        return { error: 'no-config' };
     }
 
-    console.log(`[daily-reflection] Using model: ${apiConfig.provider}/${apiConfig.model}`);
+    const { modelList, resolveProvider } = configData;
 
     const prompt = `分析以下今日对话记录，提取有长期价值的内容。
 
@@ -313,14 +321,29 @@ ${combined}
 
 只返回JSON，不要其他文字。`;
 
-    let extracted;
-    try {
-        const resp = await callLLM(prompt, apiConfig);
-        const match = resp.match(/\{[\s\S]*\}/);
-        if (match) extracted = JSON.parse(match[0]);
-    } catch (e) {
-        console.error('[daily-reflection] LLM failed:', e.message);
-        extracted = null;
+    let extracted = null;
+    let lastError = null;
+
+    for (const modelId of modelList) {
+        const apiConfig = resolveProvider(modelId);
+        if (!apiConfig || !apiConfig.apiKey) {
+            console.warn(`[daily-reflection] Skipping ${modelId}: Missing config or API key`);
+            continue;
+        }
+
+        console.log(`[daily-reflection] Attempting reflection with model: ${modelId}`);
+        try {
+            const resp = await callLLM(prompt, apiConfig);
+            const match = resp.match(/\{[\s\S]*\}/);
+            if (match) {
+                extracted = JSON.parse(match[0]);
+                console.log(`[daily-reflection] Successfully extracted data using ${modelId}`);
+                break; // 成功后退出循环
+            }
+        } catch (e) {
+            console.error(`[daily-reflection] Model ${modelId} failed:`, e.message);
+            lastError = e.message;
+        }
     }
 
     if (!extracted) {

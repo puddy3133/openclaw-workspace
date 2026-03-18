@@ -18,14 +18,13 @@
 
 ## 模型选择原则（见 SOUL.md 第三章）
 
-- 默认：kimi-coding/k2p5（最大上下文 262K）
-- fallback：nvidia/stepfun-ai/step-3.5-flash（快速）
+- 默认：主模型 `primary` ,主模型断联的情况下，根据 `fallbacks` 顺序依次轮寻
 - 空响应立即降级，不等待固定时间
 
 ## 技术栈
 
 - 平台：OpenClaw
-- 主模型：kimi-coding/k2p5
+- 主模型：主模型 `primary` 
 - 渠道：飞书（小乔）
 - 时区：Asia/Shanghai
 - 向量记忆：memory-tfidf-plugin + baai/bge-m3
