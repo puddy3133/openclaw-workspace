@@ -1,16 +1,21 @@
 {
-  "generated_at": "2026-03-18T21:53:36.876451+00:00",
+  "generated_at": "2026-03-19T09:56:51.168326+00:00",
   "lookback_hours": 24,
   "jobs_total": 11,
   "jobs_enabled": 11,
   "runs_total": 7,
-  "runs_ok": 4,
-  "runs_error": 3,
+  "runs_ok": 3,
+  "runs_error": 4,
   "error_types": {
-    "timeout": 2
+    "timeout": 3
   },
   "duplicates_enabled": [],
   "per_job": {
+    "历史会话自动归档": {
+      "ok": 0,
+      "error": 1,
+      "timeout": 1
+    },
     "每日日志内容填充": {
       "ok": 0,
       "error": 1,
@@ -31,11 +36,6 @@
       "error": 0,
       "timeout": 0
     },
-    "历史会话自动归档": {
-      "ok": 1,
-      "error": 0,
-      "timeout": 0
-    },
     "自我进化-健康扫描": {
       "ok": 1,
       "error": 0,
@@ -48,6 +48,7 @@
     }
   },
   "recommendations": [
-    "最近运行错误率偏高，建议先将高错误任务改为更低频率或先禁用，聚焦修复前 1-2 个根因。"
+    "最近运行错误率偏高，建议先将高错误任务改为更低频率或先禁用，聚焦修复前 1-2 个根因。",
+    "存在持续超时，建议将重任务间隔拉长到 >= 30 分钟，并将 timeoutSeconds 设为 120-180。"
   ]
 }
