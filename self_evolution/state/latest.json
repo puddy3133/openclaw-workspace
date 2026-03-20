@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-03-19T09:56:51.168326+00:00",
+  "generated_at": "2026-03-19T21:53:24.616720+00:00",
   "lookback_hours": 24,
   "jobs_total": 11,
   "jobs_enabled": 11,
-  "runs_total": 7,
-  "runs_ok": 3,
+  "runs_total": 8,
+  "runs_ok": 4,
   "runs_error": 4,
   "error_types": {
-    "timeout": 3
+    "timeout": 4
   },
   "duplicates_enabled": [],
   "per_job": {
@@ -16,17 +16,17 @@
       "error": 1,
       "timeout": 1
     },
-    "每日日志内容填充": {
+    "每日自我复盘": {
       "ok": 0,
       "error": 1,
       "timeout": 1
     },
-    "每日自我复盘": {
-      "ok": 0,
+    "自我进化-健康扫描": {
+      "ok": 1,
       "error": 1,
-      "timeout": 0
+      "timeout": 1
     },
-    "每日记忆日志创建": {
+    "自我进化-安全调优": {
       "ok": 0,
       "error": 1,
       "timeout": 1
@@ -36,12 +36,12 @@
       "error": 0,
       "timeout": 0
     },
-    "自我进化-健康扫描": {
+    "每日日志内容填充": {
       "ok": 1,
       "error": 0,
       "timeout": 0
     },
-    "自我进化-安全调优": {
+    "每日记忆日志创建": {
       "ok": 1,
       "error": 0,
       "timeout": 0
