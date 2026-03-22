@@ -1,0 +1,18 @@
+{
+  "date": "2026-03-21",
+  "summary": "飞书插件修复验证成功 + 系统健康检查。Gateway 绑定优化、Cron 任务调度调整、发现记忆功能禁用待跟进。",
+  "key_events": [
+    "飞书插件修复：plugins.allow 中 feishu → feishu-openclaw-plugin，全功能恢复",
+    "系统检查：Gateway 绑定改为 loopback，安全调优暂停，飞书推送启用",
+    "健康检查：发现记忆功能禁用、系统负载偏高、Tailscale 关闭等问题"
+  ],
+  "pending": [
+    "Gateway 重启确认绑定变更生效",
+    "确认 simple-cron-plugin 是否可移除",
+    "清理旧会话",
+    "是否重新启用记忆功能"
+  ],
+  "sectionsUpdated": [],
+  "apiNote": "所有模型返回无效 JSON，复盘降级为本地生成",
+  "generatedAt": "2026-03-21T13:44:00Z"
+}
