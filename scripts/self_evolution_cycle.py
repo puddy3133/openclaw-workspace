@@ -172,7 +172,14 @@ def write_outputs(summary):
     if "## History" not in backlog_text:
         lines += ["", "## History", ""]
 
-    active_idx = lines.index("## Active")
+    # Find Active section (allow optional suffix like " (Week of ...)")
+    active_idx = -1
+    for i, line in enumerate(lines):
+        if line.startswith("## Active"):
+            active_idx = i
+            break
+    if active_idx == -1:
+        active_idx = len(lines)
     try:
         history_idx = lines.index("## History")
     except ValueError:
