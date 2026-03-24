@@ -1,18 +1,20 @@
 {
-  "generated_at": "2026-03-23T07:01:36.215235+00:00",
+  "generated_at": "2026-03-24T07:01:19.503548+00:00",
   "lookback_hours": 24,
   "jobs_total": 12,
   "jobs_enabled": 11,
-  "runs_total": 9,
-  "runs_ok": 8,
+  "runs_total": 7,
+  "runs_ok": 6,
   "runs_error": 1,
-  "error_types": {},
+  "error_types": {
+    "timeout": 1
+  },
   "duplicates_enabled": [],
   "per_job": {
-    "每日自我复盘": {
-      "ok": 1,
+    "自我进化-每周复盘": {
+      "ok": 0,
       "error": 1,
-      "timeout": 0
+      "timeout": 1
     },
     "backup-to-github": {
       "ok": 1,
@@ -24,12 +26,12 @@
       "error": 0,
       "timeout": 0
     },
-    "每周自我完善": {
+    "每日日志内容填充": {
       "ok": 1,
       "error": 0,
       "timeout": 0
     },
-    "每日日志内容填充": {
+    "每日自我复盘": {
       "ok": 1,
       "error": 0,
       "timeout": 0
@@ -40,11 +42,6 @@
       "timeout": 0
     },
     "自我进化-健康扫描": {
-      "ok": 1,
-      "error": 0,
-      "timeout": 0
-    },
-    "记忆文件新鲜度检查": {
       "ok": 1,
       "error": 0,
       "timeout": 0
