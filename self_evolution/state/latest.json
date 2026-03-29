@@ -1,15 +1,48 @@
 {
-  "generated_at": "2026-03-28T12:50:37.279496+00:00",
+  "generated_at": "2026-03-29T07:01:34.509701+00:00",
   "lookback_hours": 24,
   "jobs_total": 12,
   "jobs_enabled": 11,
-  "runs_total": 0,
-  "runs_ok": 0,
-  "runs_error": 0,
-  "error_types": {},
+  "runs_total": 7,
+  "runs_ok": 4,
+  "runs_error": 3,
+  "error_types": {
+    "timeout": 2
+  },
   "duplicates_enabled": [],
-  "per_job": {},
+  "per_job": {
+    "每日日志内容填充": {
+      "ok": 0,
+      "error": 1,
+      "timeout": 1
+    },
+    "每日记忆日志创建": {
+      "ok": 0,
+      "error": 1,
+      "timeout": 1
+    },
+    "自我进化-健康扫描": {
+      "ok": 0,
+      "error": 1,
+      "timeout": 0
+    },
+    "backup-to-github": {
+      "ok": 1,
+      "error": 0,
+      "timeout": 0
+    },
+    "历史会话自动归档": {
+      "ok": 1,
+      "error": 0,
+      "timeout": 0
+    },
+    "每日自我复盘": {
+      "ok": 2,
+      "error": 0,
+      "timeout": 0
+    }
+  },
   "recommendations": [
-    "当前运行稳定，建议保持节奏并每周复盘一次策略有效性。"
+    "最近运行错误率偏高，建议先将高错误任务改为更低频率或先禁用，聚焦修复前 1-2 个根因。"
   ]
 }
