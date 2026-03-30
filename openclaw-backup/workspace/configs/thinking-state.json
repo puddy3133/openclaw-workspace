@@ -1,9 +1,0 @@
-{
-  "lastUserMessage": 1772693371000,
-  "microHeartbeatEnabled": false,
-  "userIdleThresholdMinutes": 30,
-  "microIntervalMinutes": [3, 15],
-  "dreamCronIntervalHours": [2, 4],
-  "microCronId": null,
-  "communityUrl": null
-}

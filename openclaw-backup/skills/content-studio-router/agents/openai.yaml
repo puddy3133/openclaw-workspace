@@ -1,3 +1,0 @@
-display_name: "Content Studio Router"
-short_description: "统一内容生成路由：视频笔记、绘本、PPT。"
-default_prompt: "请先判断我的目标属于视频笔记、绘本还是PPT，然后调用对应任务；若缺少 BAIDU_API_KEY，请先给出可执行的免费降级方案。"

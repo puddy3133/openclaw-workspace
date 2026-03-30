@@ -1,3 +1,0 @@
-display_name: "Agent Governance Router"
-short_description: "统一治理路由：状态汇报、复盘沉淀、主动执行策略。"
-default_prompt: "请作为治理路由器，先识别我需要状态模板、复盘方案还是执行策略，再输出简洁可执行的治理结果。"

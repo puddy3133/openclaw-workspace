@@ -1,3 +1,0 @@
-display_name: "Research Router"
-short_description: "统一检索路由：网页、学术、百科、深度检索。"
-default_prompt: "请作为检索路由器，按问题类型选择最合适的 provider，给出结构化结果与来源链接，并在必要时进行多源交叉验证。"
