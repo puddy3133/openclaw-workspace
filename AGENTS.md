@@ -331,6 +331,16 @@ sessions_spawn({
 
 Skills provide your tools. When you need one, check its `SKILL.md`. Keep local notes (camera names, SSH details, voice preferences) in `TOOLS.md`.
 
+### 🔧 飞书统一走 lark-cli（强制）
+
+所有飞书操作优先使用 `lark-cli` 命令，不使用 `feishu_*` 原生工具。
+
+- **Skill 匹配到 feishu-\* 时**：读其 SKILL.md 了解参数和约束，但**执行时用 lark-cli 对应命令**，不用里面列的 feishu_* 工具
+- **lark-\* skills**：直接按 SKILL.md 执行（mail/minutes/vc/whiteboard/event 等）
+- **feishu-only 场景**（feishu-channel-rules、feishu-troubleshoot 等无 lark-cli 对应的）：正常使用 feishu_* 工具
+- **兜底**：任何飞书 API 调用都可以 `lark-cli api <method> <path>`
+- 详见 TOOLS.md 的「飞书统一工具策略」映射表
+
 **🎭 Voice Storytelling:** If you have `sag` (ElevenLabs TTS), use voice for stories, movie summaries, and "storytime" moments! Way more engaging than walls of text. Surprise people with funny voices.
 
 **📝 Platform Formatting:**

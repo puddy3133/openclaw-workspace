@@ -42,6 +42,28 @@ Skills are shared. Your setup is yours. Keeping them apart means you can update 
 - DM Policy: pairing (需要配对码验证)
 - Group Policy: open (群组允许所有人使用)
 
+### 飞书统一工具策略 (2026-03-30)
+**统一走 lark-cli**，不再分散使用 feishu_* 原生工具。
+
+| 场景 | 工具 | 说明 |
+|------|------|------|
+| 日历/日程 | `lark-cli calendar` | +agenda, events list/create |
+| 文档 | `lark-cli docs` | create, fetch, update |
+| 电子表格 | `lark-cli sheets` | read, write, create |
+| 任务 | `lark-cli task` | create, list, update |
+| Wiki | `lark-cli wiki` | spaces, nodes |
+| 邮箱 | `lark-cli mail` | 原生工具无此功能 |
+| 妙记 | `lark-cli minutes` | 原生工具无此功能 |
+| 视频会议 | `lark-cli vc` | 原生工具无此功能 |
+| 多维表格 | `lark-cli base` | tables, records, fields |
+| 文件管理 | `lark-cli drive` | list, copy, move, upload |
+| IM 消息 | `lark-cli im` | send, list, search |
+| 通用兜底 | `lark-cli api` | 任意飞书 OpenAPI |
+
+**认证**：lark-cli 独立管理，`lark-cli doctor` 检查状态
+**Skills**：lark-* skills (在 ~/.agents/skills/) 基于 lark-cli 设计
+**备用**：feishu_* 原生工具留着当 fallback，日常不用
+
 ### SSH / 远程服务器
 - **tencent-openclaw** → 1.12.62.15, user: root, key: ~/.ssh/id_ed25519
   - 配置：2核2G，40G硬盘，CentOS
