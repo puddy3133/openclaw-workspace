@@ -74,6 +74,17 @@ Skills are shared. Your setup is yours. Keeping them apart means you can update 
 - **TAVILY_API_KEY** → 已配置（深度网页检索/新闻）
 - **BRAVE_API_KEY** → 未配置（可选）
 
+### 搜索工具策略 (2026-03-31)
+**禁用 `web_search` 工具**（内部走Kimi API，已失效），**改用 `research-router` skill 脚本**。
+
+| 场景 | 工具 | 调用方式 |
+|------|------|----------|
+| 通用搜索（自动路由） | research-router | `python3 ~/.openclaw/skills/research-router/scripts/search_router.py --provider auto --query "关键词"` |
+| 强制国外 | research-router | `--provider tavily --search-depth basic/advanced` |
+| 强制国内 | research-router | `--provider baidu-web` |
+
+**注意**：`web_search` 工具已废弃，调用会报 401。所有搜索必须通过 `research-router` 脚本执行。
+
 ---
 
 Add whatever helps you do your job. This is your cheat sheet.
