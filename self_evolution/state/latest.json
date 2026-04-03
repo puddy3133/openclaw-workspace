@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-04-01T18:06:13.958082+00:00",
+  "generated_at": "2026-04-02T18:06:13.591065+00:00",
   "lookback_hours": 24,
   "jobs_total": 11,
   "jobs_enabled": 11,
   "runs_total": 8,
-  "runs_ok": 6,
-  "runs_error": 2,
+  "runs_ok": 5,
+  "runs_error": 3,
   "error_types": {
     "timeout": 2
   },
@@ -15,6 +15,11 @@
       "ok": 0,
       "error": 1,
       "timeout": 1
+    },
+    "每日自我复盘": {
+      "ok": 0,
+      "error": 1,
+      "timeout": 0
     },
     "每日记忆日志创建": {
       "ok": 0,
@@ -31,11 +36,6 @@
       "error": 0,
       "timeout": 0
     },
-    "每日自我复盘": {
-      "ok": 1,
-      "error": 0,
-      "timeout": 0
-    },
     "自我进化-健康扫描": {
       "ok": 2,
       "error": 0,
@@ -48,6 +48,6 @@
     }
   },
   "recommendations": [
-    "当前运行稳定，建议保持节奏并每周复盘一次策略有效性。"
+    "最近运行错误率偏高，建议先将高错误任务改为更低频率或先禁用，聚焦修复前 1-2 个根因。"
   ]
 }
