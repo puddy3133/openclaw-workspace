@@ -5,7 +5,7 @@
 
 set -e
 
-BACKUP_DIR="${HOME}/openclaw-backup"
+BACKUP_DIR="${HOME}/.openclaw/workspace/openclaw-backup"
 GITHUB_REPO="${GITHUB_BACKUP_REPO:-https://github.com/puddy3133/openclaw-backup.git}"
 DATE=$(date +%Y%m%d_%H%M%S)
 

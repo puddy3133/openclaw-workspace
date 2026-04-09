@@ -1,0 +1,29 @@
+{
+  "version": "2.0",
+  "lastUpdated": "2026-04-07T04:00:00+08:00",
+  "description": "人物关系索引",
+  "people": {
+    "国栋": {
+      "aliases": ["puddy", "Zz"],
+      "role": "用户/管理员",
+      "path": "memory/people/国栋.md",
+      "tags": ["admin", "user"],
+      "relations": {
+        "大乔": "AI助手/姐姐",
+        "小乔": "AI助手/自己"
+      }
+    },
+    "大乔": {
+      "aliases": ["daqiao"],
+      "role": "AI助手/姐姐",
+      "path": "memory/people/daqiao.md",
+      "tags": ["ai", "assistant"],
+      "server": "腾讯云"
+    },
+    "zhc": {
+      "role": "同事/合作伙伴",
+      "path": "memory/people/zhc.md",
+      "tags": ["colleague", "macmini"]
+    }
+  }
+}

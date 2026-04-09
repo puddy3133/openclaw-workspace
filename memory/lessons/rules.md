@@ -58,3 +58,14 @@
 - [2026-04-06] TTS 播客生成需要预定义 voice mapping 和对话 JSON 格式，使用 ffmpeg 合并音频片段
 - [2026-04-06] Skill 开发标准结构：README, SKILL.md, skill.json, install.sh, scripts/, assets/
 - [2026-04-06] PPT 内容提取流程：解压→提取 slide XML→整理 Markdown→飞书文档创建
+
+<!-- 2026-04-07 reflection -->
+- [2026-04-07] OpenClaw 备份策略：每天 12:30 自动执行 → GitHub 私有仓库；源文件形式（非压缩）；排除 node_modules/、*.gguf 模型文件、evomap*/puddy_skillshub/tasks 目录
+- [2026-04-07] 备份范围：config/、workspace/、agents/、memory_main/、skills/、extensions/、credentials/、cron/、subagents/、identity/、devices/、completions/
+- [2026-04-07] 备份脚本位置：~/.openclaw/workspace/scripts/backup-to-github.sh（生产）和 backup-openclaw.sh（完整压缩版）
+- [2026-04-07] 恢复方法：克隆仓库 → 复制目录到 ~/.openclaw/ → 重新配置 API Keys → openclaw doctor 检查
+
+<!-- 2026-04-08 reflection -->
+- [2026-04-08] 学习归档流程：完成学习后需同步更新三处——完整笔记目录、经验提取目录、索引文件
+- [2026-04-08] 红线思维应用：设计prompt时优先定义'不要什么'而非仅定义'要什么'
+- [2026-04-08] Skill设计应以'声音'为核心维度，而非功能清单

@@ -1,0 +1,22 @@
+{
+  "id": "0e9f5815-bbbf-45be-9d44-2882be3487ce",
+  "source": "https://mp.weixin.qq.com/s/a_-EMSjN0ldsrKCIk6nxuQ",
+  "type": "article",
+  "title": "分享6个平时我最常用的Prompt心法",
+  "author": "数字生命卡兹克",
+  "processedAt": "2026-04-07T07:40:00Z",
+  "fingerprint": {
+    "hash": "b2c3d4e5f6g78901",
+    "keywords": ["prompt", "ai", "llm", "心法", "技巧", "苏格拉底", "角色", "辩论"]
+  },
+  "lessons": [
+    "让AI自己选专家角色，比用户指定更精准",
+    "苏格拉底式追问：95%置信度作为停止条件",
+    "主动要求AI扮演反对者，打破谄媚效应",
+    "项目开始前做预演失败，识别认知盲区",
+    "反向提示：给成品让AI倒推Prompt学习结构",
+    "双层解释法：初学者版+专业版对照学习"
+  ],
+  "tags": ["prompt", "ai", "llm", "心法", "技巧"],
+  "outputPath": "memory/learning-queue/completed/0e9f5815-bbbf-45be-9d44-2882be3487ce/"
+}

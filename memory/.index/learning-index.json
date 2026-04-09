@@ -1,0 +1,115 @@
+{
+  "version": "2.0",
+  "lastUpdated": "2026-04-08T06:30:00+08:00",
+  "description": "学习内容索引 - 支持去重检查和快速检索",
+  "stats": {
+    "totalItems": 4,
+    "pending": 0,
+    "scheduled": 0,
+    "inProgress": 0,
+    "completed": 4
+  },
+  "keywords": {
+    "agent": ["c4c092db-8c3e-415a-a7e1-8a4e0dc87a1f"],
+    "workflow": ["c4c092db-8c3e-415a-a7e1-8a4e0dc87a1f"],
+    "skill": ["c4c092db-8c3e-415a-a7e1-8a4e0dc87a1f"],
+    "claude": ["c4c092db-8c3e-415a-a7e1-8a4e0dc87a1f"],
+    "superpowers": ["c4c092db-8c3e-415a-a7e1-8a4e0dc87a1f"],
+    "development": ["c4c092db-8c3e-415a-a7e1-8a4e0dc87a1f"],
+    "planning": ["c4c092db-8c3e-415a-a7e1-8a4e0dc87a1f"],
+    "review": ["c4c092db-8c3e-415a-a7e1-8a4e0dc87a1f"],
+    "prompt": ["0e9f5815-bbbf-45be-9d44-2882be3487ce"],
+    "ai": ["0e9f5815-bbbf-45be-9d44-2882be3487ce"],
+    "llm": ["0e9f5815-bbbf-45be-9d44-2882be3487ce"],
+    "心法": ["0e9f5815-bbbf-45be-9d44-2882be3487ce"],
+    "技巧": ["0e9f5815-bbbf-45be-9d44-2882be3487ce"],
+    "苏格拉底": ["0e9f5815-bbbf-45be-9d44-2882be3487ce"],
+    "角色": ["0e9f5815-bbbf-45be-9d44-2882be3487ce"],
+    "辩论": ["0e9f5815-bbbf-45be-9d44-2882be3487ce"],
+    "feishu": ["lark-plugin-guide-20260407"],
+    "lark": ["lark-plugin-guide-20260407"],
+    "openclaw": ["lark-plugin-guide-20260407"],
+    "plugin": ["lark-plugin-guide-20260407"],
+    "飞书": ["lark-plugin-guide-20260407"],
+    "插件": ["lark-plugin-guide-20260407"],
+    "官方": ["lark-plugin-guide-20260407"],
+    "安全": ["lark-plugin-guide-20260407"],
+    "配置": ["lark-plugin-guide-20260407"],
+    "李继刚": ["ljg-skills-deep-dive"],
+    "skills": ["ljg-skills-deep-dive"],
+    "prompt": ["0e9f5815-bbbf-45be-9d44-2882be3487ce", "ljg-skills-deep-dive"],
+    "claude": ["c4c092db-8c3e-415a-a7e1-8a4e0dc87a1f", "ljg-skills-deep-dive"],
+    "红线": ["ljg-skills-deep-dive"],
+    "methodology": ["ljg-skills-deep-dive"],
+    "知识管理": ["ljg-skills-deep-dive"],
+    "skill-design": ["ljg-skills-deep-dive"]
+  },
+  "fingerprints": [
+    {
+      "id": "c4c092db-8c3e-415a-a7e1-8a4e0dc87a1f",
+      "hash": "a1b2c3d4e5f67890",
+      "keywords": ["agent", "workflow", "skill", "claude", "superpowers", "development", "planning", "review"],
+      "source": "https://mp.weixin.qq.com/s/06zQ7izFKN7oZnzVaNwkdw",
+      "addedAt": "2026-04-07T07:25:00+08:00"
+    },
+    {
+      "id": "0e9f5815-bbbf-45be-9d44-2882be3487ce",
+      "hash": "b2c3d4e5f6g78901",
+      "keywords": ["prompt", "ai", "llm", "心法", "技巧", "苏格拉底", "角色", "辩论"],
+      "source": "https://mp.weixin.qq.com/s/a_-EMSjN0ldsrKCIk6nxuQ",
+      "addedAt": "2026-04-07T07:42:00+08:00"
+    },
+    {
+      "id": "lark-plugin-guide-20260407",
+      "hash": "c3d4e5f6g7h89012",
+      "keywords": ["feishu", "lark", "openclaw", "plugin", "飞书", "插件", "官方", "安全", "配置"],
+      "source": "https://bytedance.larkoffice.com/docx/MFK7dDFLFoVlOGxWCv5cTXKmnMh",
+      "addedAt": "2026-04-07T07:48:00+08:00"
+    },
+    {
+      "id": "ljg-skills-deep-dive",
+      "hash": "d4e5f6g7h8i90123",
+      "keywords": ["李继刚", "skills", "prompt", "claude", "红线", "methodology", "知识管理", "skill-design"],
+      "source": "https://mp.weixin.qq.com/s/yKAeLyrbyjGUZti6nfJc8g",
+      "addedAt": "2026-04-08T06:30:00+08:00"
+    }
+  ],
+  "items": [
+    {
+      "id": "c4c092db-8c3e-415a-a7e1-8a4e0dc87a1f",
+      "source": "https://mp.weixin.qq.com/s/06zQ7izFKN7oZnzVaNwkdw",
+      "type": "article",
+      "status": "completed",
+      "addedAt": "2026-04-07T07:19:13.498Z",
+      "completedAt": "2026-04-07T07:25:00+08:00",
+      "outputPath": "memory/learning-queue/completed/c4c092db-8c3e-415a-a7e1-8a4e0dc87a1f/"
+    },
+    {
+      "id": "0e9f5815-bbbf-45be-9d44-2882be3487ce",
+      "source": "https://mp.weixin.qq.com/s/a_-EMSjN0ldsrKCIk6nxuQ",
+      "type": "article",
+      "status": "completed",
+      "addedAt": "2026-04-07T07:38:55.459Z",
+      "completedAt": "2026-04-07T07:42:00+08:00",
+      "outputPath": "memory/learning-queue/completed/0e9f5815-bbbf-45be-9d44-2882be3487ce/"
+    },
+    {
+      "id": "lark-plugin-guide-20260407",
+      "source": "https://bytedance.larkoffice.com/docx/MFK7dDFLFoVlOGxWCv5cTXKmnMh",
+      "type": "doc",
+      "status": "completed",
+      "addedAt": "2026-04-07T07:45:00Z",
+      "completedAt": "2026-04-07T07:48:00+08:00",
+      "outputPath": "memory/learning-queue/completed/lark-plugin-guide-20260407/"
+    },
+    {
+      "id": "ljg-skills-deep-dive",
+      "source": "https://mp.weixin.qq.com/s/yKAeLyrbyjGUZti6nfJc8g",
+      "type": "article",
+      "status": "completed",
+      "addedAt": "2026-04-08T06:30:00Z",
+      "completedAt": "2026-04-08T06:30:00+08:00",
+      "outputPath": "memory/learning-queue/completed/ljg-skills-deep-dive.md"
+    }
+  ]
+}

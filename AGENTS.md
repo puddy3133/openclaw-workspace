@@ -16,7 +16,10 @@ Before doing anything else:
 4. **Run启动检查** — 检查遗漏的定时任务（执行 `~/.openclaw/workspace/scripts/startup-check.sh`）
 5. Read `memory/INDEX.md` — 记忆的渐进式披露入口
 6. Read `memory/NOW.md` — 当前近3天优先级
-7. Read `memory/YYYY-MM-DD.md` (**真实今日** + 昨日) for recent context
+7. 【新增】检查学习库状态 — 查看 `memory/learning-queue/in-progress/checkpoint.json`
+   - 如有断点 → 询问用户是否继续学习
+   - 如 `scheduled/` 积压 >10 条 → 提醒用户
+8. Read `memory/YYYY-MM-DD.md` (**真实今日** + 昨日) for recent context
    - ⚠️ **重要**：如果当日日志不存在，立即创建，**禁止**用旧文件凑合
 8. **If in MAIN SESSION** (direct chat with your human): Also read `MEMORY.md`
 

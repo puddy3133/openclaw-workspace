@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-04-06T20:06:55.261212+00:00",
+  "generated_at": "2026-04-09T01:01:12.732911+00:00",
   "lookback_hours": 24,
-  "jobs_total": 11,
-  "jobs_enabled": 11,
-  "runs_total": 10,
-  "runs_ok": 5,
+  "jobs_total": 12,
+  "jobs_enabled": 12,
+  "runs_total": 8,
+  "runs_ok": 3,
   "runs_error": 5,
   "error_types": {
     "timeout": 5
@@ -16,7 +16,7 @@
       "error": 1,
       "timeout": 1
     },
-    "全局质检与清理优化": {
+    "历史会话自动归档": {
       "ok": 0,
       "error": 1,
       "timeout": 1
@@ -36,7 +36,7 @@
       "error": 1,
       "timeout": 1
     },
-    "历史会话自动归档": {
+    "夜间深度学习": {
       "ok": 1,
       "error": 0,
       "timeout": 0
@@ -47,11 +47,6 @@
       "timeout": 0
     },
     "自我进化-健康扫描": {
-      "ok": 2,
-      "error": 0,
-      "timeout": 0
-    },
-    "自我进化-每周复盘": {
       "ok": 1,
       "error": 0,
       "timeout": 0

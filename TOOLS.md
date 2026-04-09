@@ -69,6 +69,21 @@ Skills are shared. Your setup is yours. Keeping them apart means you can update 
   - 配置：2核2G，40G硬盘，CentOS
   - 用途：OpenClaw 小弟机（辅助计算/任务执行）
 
+### TTS 服务 (ZHC Mac Mini)
+- **设备**: Mac mini M4 (16GB)
+- **位置**: 公司局域网 (192.168.1.213)
+- **远程访问**: `ssh -p 6000 zhc@1.12.62.15` (密码: zhc135!)
+- **服务地址**: `http://1.12.62.15:6000` (frp 穿透)
+- **本地地址**: `http://192.168.1.213:8080`
+- **模型**: Qwen3-TTS-0.6B-Base
+- **启动脚本**: `~/start_tts.sh`
+- **状态**: ✅ 运行中 (测试模式)
+- **特点**: 
+  - 纯内存处理，零磁盘写入
+  - 零日志记录
+  - 支持中文 TTS
+  - 音色克隆 (待完善)
+
 ### API Keys / 搜索服务
 - **BAIDU_API_KEY** → 已配置（百度搜索/学术/百科）
 - **TAVILY_API_KEY** → 已配置（深度网页检索/新闻）

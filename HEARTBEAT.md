@@ -34,11 +34,14 @@
 - 检查 `memory/NOW.md` 优先级
 - 立即提醒（不等待）
 
-### 4. Session 扫描（可选）
+### 4. 学习库健康检查（新增）
 
-- 扫描近期对话
-- 识别承诺但未完成的事项
-- 如有 → 提醒
+- 检查 `memory/learning-queue/scheduled/` 积压数量
+  - >10 条 → 提醒用户："学习队列积压 X 条，建议增加学习频率"
+- 检查 `memory/learning-queue/in-progress/` 断点状态
+  - 如有断点超过 24 小时 → 提醒用户："学习中断超过 24 小时，是否继续？"
+- 检查 `memory/.index/learning-index.json` 更新状态
+  - 超过 7 天未更新 → 触发索引重建
 
 ## 夜间模式（23:30 daily-reflection）
 
@@ -47,11 +50,15 @@
 - 归档 30 天前记忆 → `memory/archive/`
 - 更新 `memory/INDEX.md`
 - 更新关键词索引
+- 【新增】归档 90 天前学习内容 → `memory/learning-queue/archive/`
 
 ### 索引更新
 - 扫描今日新增内容
 - 提取关键词
 - 更新 `memory/.index/keywords.json`
+- 【新增】更新 `memory/.index/learning-index.json`
+- 【新增】更新 `memory/.index/project-tags.json`
+- 【新增】更新 `memory/.index/people-relations.json`
 
 ## Response Rules
 
@@ -69,8 +76,9 @@
 | session-archiver | 每天 03:00 (CST) | 历史会话归档 |
 | log-cleanup | 每周一 04:00 (CST) | 日志分级清理 |
 | weekly-evolution | 每周日 10:00 (CST) | 每周自我完善 |
+| **nightly-learning** | **每天 04:00 (CST)** | **夜间深度学习** |
 
 手动触发：`openclaw cron run <job-id>`
 
 ---
-*更新时间：2026-03-16*
+*更新时间：2026-04-07*
