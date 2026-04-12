@@ -65,9 +65,24 @@ Skills are shared. Your setup is yours. Keeping them apart means you can update 
 **备用**：feishu_* 原生工具留着当 fallback，日常不用
 
 ### SSH / 远程服务器
-- **tencent-openclaw** → 1.12.62.15, user: root, key: ~/.ssh/id_ed25519
-  - 配置：2核2G，40G硬盘，CentOS
-  - 用途：OpenClaw 小弟机（辅助计算/任务执行）
+
+#### 大乔 (腾讯云 Ubuntu)
+- **IP**: 1.12.62.15
+- **用户**: root
+- **系统**: Ubuntu 22.04 (VM-0-5-ubuntu)
+- **配置**: 2核2G，40G硬盘
+- **用途**: OpenClaw 小弟机（辅助计算/任务执行）
+- **OpenClaw 状态**: ✅ 运行中 (Gateway PID 2092099)
+- **frps**: 服务端口 7000，token: zhc2024macmini
+- **SSH**: `ssh root@1.12.62.15`
+- **操控小乔Mac**: `ssh -p 6000 puddy@localhost` (通过frp隧道)
+
+#### ZHC (Mac mini M4)
+- **IP**: 1.12.62.15:6000 (frp穿透)
+- **用户**: zhc
+- **系统**: macOS 26.2 (Darwin ARM64)
+- **用途**: TTS 服务
+- **SSH**: `ssh -p 6000 zhc@1.12.62.15`
 
 ### TTS 服务 (ZHC Mac Mini)
 - **设备**: Mac mini M4 (16GB)

@@ -1,18 +1,6 @@
 {
-  "currentItem": {
-    "id": "b4d431c8-1c49-487c-9e99-9d1ff537457c",
-    "source": "https://waytoagi.feishu.cn/wiki/Fj5UwmoRKiEP9mkRL3ccCEPvnLg",
-    "type": "article",
-    "status": "scheduled",
-    "addedAt": "2026-04-07T07:54:10.923Z",
-    "content": null,
-    "decision": "scheduled",
-    "riskLevel": "safe",
-    "tags": [],
-    "decidedAt": "2026-04-07T07:55:05.020Z"
-  },
-  "progress": "failed",
-  "error": "browser_unavailable",
-  "errorMessage": "OpenClaw browser control service unavailable - cannot fetch Feishu wiki content",
-  "lastUpdated": "2026-04-09T20:05:00.000Z"
+  "currentItem": null,
+  "progress": "idle",
+  "lastUpdated": "2026-04-11T20:56:00.000Z",
+  "note": "Previous browser_unavailable error cleared by heartbeat - ready to resume learning"
 }

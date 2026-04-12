@@ -1,16 +1,26 @@
 {
-  "generated_at": "2026-04-10T04:54:39.060181+00:00",
+  "generated_at": "2026-04-11T16:54:58.250366+00:00",
   "lookback_hours": 24,
   "jobs_total": 12,
   "jobs_enabled": 12,
-  "runs_total": 6,
-  "runs_ok": 4,
-  "runs_error": 2,
+  "runs_total": 9,
+  "runs_ok": 5,
+  "runs_error": 4,
   "error_types": {
-    "timeout": 2
+    "timeout": 4
   },
   "duplicates_enabled": [],
   "per_job": {
+    "backup-to-github": {
+      "ok": 0,
+      "error": 1,
+      "timeout": 1
+    },
+    "夜间深度学习": {
+      "ok": 0,
+      "error": 1,
+      "timeout": 1
+    },
     "每日日志内容填充": {
       "ok": 0,
       "error": 1,
@@ -21,7 +31,7 @@
       "error": 1,
       "timeout": 1
     },
-    "夜间深度学习": {
+    "历史会话自动归档": {
       "ok": 1,
       "error": 0,
       "timeout": 0
@@ -32,7 +42,7 @@
       "timeout": 0
     },
     "自我进化-健康扫描": {
-      "ok": 1,
+      "ok": 2,
       "error": 0,
       "timeout": 0
     },
@@ -43,6 +53,7 @@
     }
   },
   "recommendations": [
-    "当前运行稳定，建议保持节奏并每周复盘一次策略有效性。"
+    "最近运行错误率偏高，建议先将高错误任务改为更低频率或先禁用，聚焦修复前 1-2 个根因。",
+    "存在持续超时，建议将重任务间隔拉长到 >= 30 分钟，并将 timeoutSeconds 设为 120-180。"
   ]
 }
