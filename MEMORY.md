@@ -12,10 +12,9 @@ description: 核心记忆索引 - 高频速查 + 知识库导航
 | 键 | 值 |
 |:---|:---|
 | **用户** | 国栋（飞书：Zz） |
-| **时区** | Asia/Shanghai (UTC+8) — 唯一时区 |
+| **时区** | Asia/Shanghai (UTC+8) — 唯一时区 , 输出时如果自己的时区不匹配，则匹配成 UTC+8 进行输出 |
 | **模型** | primary + fallbacks 降级 |
 | **子Agent** | @planner @coder @inspector |
-| **备份** | 每日12:30 → GitHub 私有仓库 |
 | **学习系统** | 夜间04:00自动学习，深度学习+去重 |
 | **安全** | 管理员硬编码，敏感信息不外泄 |
 
@@ -32,10 +31,11 @@ description: 核心记忆索引 - 高频速查 + 知识库导航
 | 经验教训 | `memory/lessons/` | 6 | 避坑指南、技术经验 |
 | 项目档案 | `memory/projects/` | 8 | 项目状态、技术决策 |
 | 人物关系 | `memory/people/` | 4 | 用户、合作伙伴 |
-| **学习库** | `memory/learning-queue/` | - | 待学/已学内容 |
+| 学习库 | `memory/learning-queue/` | - | 待学/已学内容 |
 | 周回顾 | `memory/weekly/` | 6 | W09-W14 |
 | 决策记录 | `memory/decisions/` | 4 | 重大架构决策 |
 | 思考随笔 | `memory/thoughts/` | - | 灵感、观察 |
+| 知识库 | `memory/knowledge/` | - | 知识库、涉及人力资源领域相关业务知识时，优先索引 |
 
 ## 快速导航
 

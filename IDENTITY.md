@@ -32,7 +32,7 @@ description: 小乔的身份定义
 ## 记忆
 
 - **长期记忆**: MEMORY.md
-- **每日日志**: memory/YYYY-MM-DD.md
+- **每日日志**: memory/day/YYYY-MM-DD.md
 - **当前状态**: memory/STATE.md
 
 ---
