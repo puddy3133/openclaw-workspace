@@ -1,0 +1,57 @@
+{
+  "version": "1.0",
+  "period": "2026-04-01 to 2026-04-17",
+  "last_updated": "2026-04-16T17:04:45.429Z",
+  "access_metrics": {
+    "total_queries": 0,
+    "query_types": {
+      "exact": 0,
+      "keyword": 0,
+      "fuzzy": 0
+    },
+    "top_queries": [],
+    "avg_query_latency_ms": 0,
+    "cache_hit_ratio": 0
+  },
+  "memory_metrics": {
+    "total_memories": 43,
+    "by_type": {
+      "lessons": 13,
+      "projects": 22,
+      "people": 3,
+      "patterns": 5
+    },
+    "by_lifecycle": {
+      "active": 5,
+      "decay": 0,
+      "expired": 0,
+      "unknown": 38
+    },
+    "day_active": 34,
+    "day_archived": 16,
+    "weekly_count": 7,
+    "avg_access_count": 0,
+    "most_accessed": []
+  },
+  "pattern_metrics": {
+    "total_patterns_detected": 6,
+    "consolidation_candidates": 0,
+    "avg_pattern_confidence": 0.82,
+    "total_refs": 0,
+    "patterns_reused": false
+  },
+  "tag_metrics": {
+    "total_tags": 22,
+    "auto_assigned_ratio": 0.9283018867924528,
+    "coverage": 1
+  },
+  "learning_metrics": {
+    "completed": 5,
+    "pending_review": 0
+  },
+  "performance_metrics": {
+    "index_build_time_ms": 0,
+    "query_cache_size_mb": 0,
+    "archive_size_mb": 0
+  }
+}

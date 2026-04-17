@@ -313,6 +313,7 @@ ${combined}
   "decisions": ["重要决策（格式：决策内容 | 原因），务必包含技术方案选择"],
   "learned": ["经验教训、避坑点、新发现的系统限制或工具用法"],
   "principles": ["工作原则、核心价值观、技术偏好更新"],
+  "patterns": ["从成功任务中提取的可复用推理模式或操作链路，格式应包含：{类型} | {场景} | {方法} | {注意事项}"],
   "people_updates": { "人名": "需要记录的新信息，包括飞书ID、偏好、权限等" },
   "project_updates": { "项目名": "需要记录的新信息，包括进度、关键路径、待办" },
   "core_conclusions": ["需要更新/补充到 MEMORY.md 核心结论的内容（涉及人格、架构、核心链路）"],
@@ -359,6 +360,43 @@ ${combined}
         const content = items.map(item => `- [${dateStr}] ${item}`).join('\n');
         appendToSection(section, content);
         console.log(`[daily-reflection] Updated ${section} (${items.length} items)`);
+    }
+
+    // 模式提取更新（Hermes 学习闭环）
+    if (extracted.patterns && Array.isArray(extracted.patterns)) {
+        for (const p of extracted.patterns) {
+            const parts = p.split('|').map(s => s.trim());
+            if (parts.length < 3) continue;
+            const [type, scene, method, note] = parts;
+            const pDir = path.join(workspaceDir, 'memory', 'patterns');
+            fs.mkdirSync(pDir, { recursive: true });
+            const slug = type.toLowerCase().replace(/\s+/g, '-');
+            const pFile = path.join(pDir, `${slug}.md`);
+
+            if (fs.existsSync(pFile)) {
+                // Update existing pattern: increment version, update timestamp, append to 更新记录
+                let existing = fs.readFileSync(pFile, 'utf8');
+                const versionMatch = existing.match(/version:\s*(\d+)/);
+                const oldVersion = versionMatch ? parseInt(versionMatch[1], 10) : 1;
+                const newVersion = oldVersion + 1;
+                existing = existing.replace(/version:\s*\d+/, `version: ${newVersion}`);
+                existing = existing.replace(/updated:\s*\S+/, `updated: ${dateStr}`);
+                // Append update record
+                const updateRecord = `\n- v${newVersion} (${dateStr}): ${method.slice(0, 100)}`;
+                if (existing.includes('## 更新记录')) {
+                    existing = existing.replace('## 更新记录', `## 更新记录${updateRecord}`);
+                } else {
+                    existing += `\n## 更新记录${updateRecord}\n`;
+                }
+                fs.writeFileSync(pFile, existing);
+                console.log(`[daily-reflection] Updated pattern: ${type} -> v${newVersion}`);
+            } else {
+                // Create new pattern with full frontmatter
+                const pContent = `---\ntask-type: ${type}\ncontext: ${scene}\ncreated: ${dateStr}\nupdated: ${dateStr}\nversion: 1\ntags: [${slug}]\nrefs: 0\n---\n\n## 场景\n${scene}\n\n## 方法\n${method}\n\n## 效果\n由 daily_reflection 自动提取。\n\n## 注意事项\n${note || '无'}\n\n## 更新记录\n- v1 (${dateStr}): 初始创建\n`;
+                fs.writeFileSync(pFile, pContent);
+                console.log(`[daily-reflection] New pattern: ${type}`);
+            }
+        }
     }
 
     // 人物更新

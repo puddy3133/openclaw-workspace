@@ -1,0 +1,177 @@
+{
+  "version": "1.0",
+  "last_updated": "2026-04-16T17:04:44.898Z",
+  "patterns": [
+    {
+      "pattern_id": "p_001",
+      "name": "知识消化三轮过滤",
+      "type": "workflow",
+      "keywords": [
+        "learning",
+        "distillation",
+        "knowledge-management",
+        "WebFetch"
+      ],
+      "frequency": 1,
+      "related_memories": [
+        "patterns/knowledge-digestion.md",
+        "lessons/cli-tools-ecosystem.md"
+      ],
+      "confidence": 0.8,
+      "first_seen": "2026-04-16T00:00:00+08:00",
+      "last_seen": "2026-04-16T00:00:00+08:00",
+      "consolidation_candidate": false,
+      "consolidation_target": null
+    },
+    {
+      "pattern_id": "p_002",
+      "name": "多Agent接力协议",
+      "type": "workflow",
+      "keywords": [
+        "orchestration",
+        "memory-relay",
+        "teamwork",
+        "state-lock"
+      ],
+      "frequency": 1,
+      "related_memories": [
+        "patterns/multi-agent-orchestration.md"
+      ],
+      "confidence": 0.8,
+      "first_seen": "2026-04-16T00:00:00+08:00",
+      "last_seen": "2026-04-16T00:00:00+08:00",
+      "consolidation_candidate": false,
+      "consolidation_target": null
+    },
+    {
+      "pattern_id": "p_003",
+      "name": "夜间批量学习流程",
+      "type": "workflow",
+      "keywords": [
+        "learning",
+        "cron",
+        "batch-processing",
+        "nightly-learn"
+      ],
+      "frequency": 21,
+      "related_memories": [
+        "patterns/nightly-learning.md",
+        "lessons/cli-tools-ecosystem.md",
+        "lessons/hermes-agent-research-report.md",
+        "lessons/humanizer-zh-skill.md",
+        "lessons/learning-loop.md",
+        "lessons/ljg-redline-thinking.md",
+        "lessons/memory-file-usage.md",
+        "lessons/pageindex-rag.md",
+        "lessons/user-modeling-rules.md",
+        "patterns/bidding-analysis.md",
+        "patterns/knowledge-digestion.md",
+        "patterns/multi-agent-orchestration.md",
+        "patterns/technical-proposal.md",
+        "projects/coder-agent-completion.md",
+        "projects/mac-mini-tts.md",
+        "projects/macmini-zhc-config-report.md",
+        "projects/macmini-zhc.md",
+        "projects/persistent-agent-architecture.md",
+        "projects/voice-system-plan.md",
+        "projects/智慧人事一体化服务系统-投标技术方案模板.md",
+        "projects/智慧人事投标-详细规划.md",
+        "lessons/cron-ops.md",
+        "lessons/decisions.md",
+        "lessons/learned.md",
+        "lessons/principles.md",
+        "lessons/rules.md",
+        "projects/hermes-agent-调研.md",
+        "projects/智慧人事一体化服务系统（2026）投标.md",
+        "projects/fish-audio-tts.md",
+        "projects/飞书官方插件多人会话改造.md",
+        "projects/ai训练营作业.md",
+        "projects/frontend-slides.md",
+        "projects/openclaw-tui.md",
+        "projects/个人学习系统.md"
+      ],
+      "confidence": 0.81,
+      "first_seen": "2026-04-16T00:00:00+08:00",
+      "last_seen": "2026-04-16T17:04:44.898Z",
+      "consolidation_candidate": false,
+      "consolidation_target": null
+    },
+    {
+      "pattern_id": "p_004",
+      "name": "技术方案生成框架",
+      "type": "workflow",
+      "keywords": [
+        "proposal",
+        "planning",
+        "documentation",
+        "bidding"
+      ],
+      "frequency": 1,
+      "related_memories": [
+        "patterns/technical-proposal.md",
+        "patterns/bidding-analysis.md"
+      ],
+      "confidence": 0.78,
+      "first_seen": "2026-04-16T00:00:00+08:00",
+      "last_seen": "2026-04-16T00:00:00+08:00",
+      "consolidation_candidate": false,
+      "consolidation_target": null
+    },
+    {
+      "pattern_id": "p_005",
+      "name": "投标文件分析策略",
+      "type": "workflow",
+      "keywords": [
+        "bidding",
+        "procurement",
+        "analysis",
+        "实质性条款"
+      ],
+      "frequency": 1,
+      "related_memories": [
+        "patterns/bidding-analysis.md"
+      ],
+      "confidence": 0.8,
+      "first_seen": "2026-04-16T00:00:00+08:00",
+      "last_seen": "2026-04-16T00:00:00+08:00",
+      "consolidation_candidate": false,
+      "consolidation_target": null
+    },
+    {
+      "pattern_id": "p_006",
+      "name": "2026-04-12+2026-04-06",
+      "type": "topic",
+      "keywords": [
+        "2026-04-12",
+        "2026-04-06"
+      ],
+      "frequency": 9,
+      "related_memories": [
+        "lessons/decisions.md",
+        "lessons/hermes-agent-research-report.md",
+        "lessons/learned.md",
+        "lessons/principles.md",
+        "lessons/rules.md",
+        "projects/hermes-agent-调研.md",
+        "projects/waytoagi-文章学习.md",
+        "projects/火山引擎-tts-调研.md",
+        "projects/飞书官方插件多人会话改造.md",
+        "projects/fish-audio-tts.md",
+        "projects/frontend-slides.md",
+        "projects/macmini-zhc.md"
+      ],
+      "confidence": 0.95,
+      "first_seen": "2026-04-16T16:46:48.301Z",
+      "last_seen": "2026-04-16T16:46:48.301Z",
+      "consolidation_candidate": false,
+      "consolidation_target": null
+    }
+  ],
+  "total_patterns": 6,
+  "pattern_stats": {
+    "by_type": {
+      "workflow": 5,
+      "topic": 1
+    }
+  }
+}

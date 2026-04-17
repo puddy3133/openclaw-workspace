@@ -1,0 +1,81 @@
+{
+  "version": "1.0",
+  "description": "学习完成记录 — 追踪每次学习的输入、产出和时间",
+  "lastUpdated": "2026-04-16T14:00:00+08:00",
+  "records": [
+    {
+      "id": "c4c092db-8c3e-415a-a7e1-8a4e0dc87a1f",
+      "source": "https://mp.weixin.qq.com/s/06zQ7izFKN7oZnzVaNwkdw",
+      "type": "article",
+      "title": "Claude Agent Workflow & Superpowers",
+      "addedAt": "2026-04-07T07:19:13Z",
+      "completedAt": "2026-04-07T07:25:00+08:00",
+      "output": {
+        "type": "lesson",
+        "path": "memory/lessons/cli-tools-ecosystem.md",
+        "keywords": ["agent", "workflow", "skill", "claude", "superpowers"]
+      }
+    },
+    {
+      "id": "0e9f5815-bbbf-45be-9d44-2882be3487ce",
+      "source": "https://mp.weixin.qq.com/s/a_-EMSjN0ldsrKCIk6nxuQ",
+      "type": "article",
+      "title": "Prompt AI 心法与技巧（苏格拉底式辩论）",
+      "addedAt": "2026-04-07T07:38:55Z",
+      "completedAt": "2026-04-07T07:42:00+08:00",
+      "output": {
+        "type": "lesson",
+        "path": "memory/lessons/principles.md",
+        "keywords": ["prompt", "ai", "llm", "苏格拉底", "辩论"]
+      }
+    },
+    {
+      "id": "lark-plugin-guide-20260407",
+      "source": "https://bytedance.larkoffice.com/docx/MFK7dDFLFoVlOGxWCv5cTXKmnMh",
+      "type": "doc",
+      "title": "飞书 OpenClaw 插件指南",
+      "addedAt": "2026-04-07T07:45:00Z",
+      "completedAt": "2026-04-07T07:48:00+08:00",
+      "output": {
+        "type": "lesson",
+        "path": "memory/lessons/rules.md",
+        "keywords": ["feishu", "lark", "openclaw", "plugin", "安全"]
+      }
+    },
+    {
+      "id": "ljg-skills-deep-dive",
+      "source": "https://mp.weixin.qq.com/s/yKAeLyrbyjGUZti6nfJc8g",
+      "type": "article",
+      "title": "李继刚 Skills 深度解析",
+      "addedAt": "2026-04-08T06:30:00Z",
+      "completedAt": "2026-04-08T06:30:00+08:00",
+      "output": {
+        "type": "lesson",
+        "path": "memory/lessons/ljg-redline-thinking.md",
+        "keywords": ["李继刚", "skills", "prompt", "红线", "methodology"]
+      }
+    },
+    {
+      "id": "nightly-batch-20260416",
+      "source": "learning-queue/scheduled (14 items batch)",
+      "type": "batch",
+      "title": "夜间批量学习 — CLI工具生态调研",
+      "addedAt": "2026-04-07T07:54:00Z",
+      "completedAt": "2026-04-16T01:54:00+08:00",
+      "output": {
+        "type": "lesson",
+        "path": "memory/lessons/cli-tools-ecosystem.md",
+        "keywords": ["cli", "lark-cli", "dingtalk", "google-workspace", "tools"]
+      }
+    }
+  ],
+  "stats": {
+    "totalCompleted": 5,
+    "byType": {
+      "article": 3,
+      "doc": 1,
+      "batch": 1
+    },
+    "avgProcessingMinutes": 8.2
+  }
+}

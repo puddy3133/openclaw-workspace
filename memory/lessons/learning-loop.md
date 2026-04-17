@@ -37,14 +37,17 @@
 
 ## 三、Pattern 文件格式
 
-存入 `memory/patterns/{task-type}-{YYYY-MM-DD}.md`：
+存入 `memory/patterns/{task-type}.md`（不带日期，同 task-type 更新原文件）：
 
 ```markdown
 ---
 task-type: {类型，如 feishu-integration / tts-setup / multi-agent}
 context: {触发场景一句话描述}
-date: YYYY-MM-DD
+created: YYYY-MM-DD
+updated: YYYY-MM-DD
+version: 1
 tags: [tag1, tag2]
+refs: 0
 ---
 
 ## 场景
@@ -58,6 +61,9 @@ tags: [tag1, tag2]
 
 ## 注意事项
 {坑点或边界条件}
+
+## 更新记录
+- v1 (YYYY-MM-DD): 初始创建
 ```
 
 ---
@@ -80,7 +86,27 @@ tags: [tag1, tag2]
 
 ---
 
-## 六、种子 Patterns（初始化）
+## 六、反馈信号捕获（Hermes 用户建模增强）
+
+当检测到用户修正或肯定信号时，立即执行：
+
+```
+用户消息到达
+  ↓
+包含修正信号？（"不对"/"改成"/"错了"/"重新来"）
+  ├── 是 → 提取修正内容 + 原因
+  │         → 追加到 people/国栋.md「显式修正记录」
+  │         → 检查是否关联某个 pattern → 是则更新 pattern 注意事项
+  └── 否 → 包含肯定信号？（"完美"/"就这样"/"exactly"）
+            ├── 是 + 方法非显然 → 追加到「隐式接受」
+            └── 否 → 不处理
+```
+
+**记录格式**：`[YYYY-MM-DD] 修正/肯定内容 | 原因 | 影响范围`
+
+---
+
+## 七、种子 Patterns（初始化）
 
 以下已有经验可作为初始 pattern 提取来源：
 - `lessons/learned.md` 中的多步操作记录

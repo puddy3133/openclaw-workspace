@@ -11,6 +11,18 @@ lifecycle_stage: active
 
 # Self-Learning and Optimization System
 
+## 索引目录说明
+
+本系统使用两个并行索引目录，职责不同，不要混用：
+
+| 目录 | 职责 | 主要文件 |
+|------|------|---------|
+| `.learning/` | 模式分析、标签管理、合并建议、KPI 指标 | `patterns.json`, `tag-index.json`, `consolidation-log.json`, `learning-metrics.json`, `recommendations.json` |
+| `.index/` | 学习内容去重、检索指纹、项目标签、人物关系 | `learning-index.json`, `keywords.json`, `project-tags.json`, `people-relations.json` |
+
+- **`.learning/`** 由 5 个每日/每周 cron job 自动维护（pattern-analyzer, auto-tagger, consolidation-analyzer, learning-metrics, recommendation-generator）
+- **`.index/`** 由 nightly-learning cron job 和 daily-reflection 脚本维护，主要用于去重检查和快速检索
+
 ## Overview
 
 Automated system for analyzing memory patterns, generating optimization recommendations, and improving memory organization through continuous learning.
@@ -308,6 +320,7 @@ Generate actionable recommendations based on learning metrics and patterns.
 
 ### Pattern Analyzer (Daily 09:00)
 - Scans all memories for recurring patterns
+- **执行方式**: `node scripts/learning-system/pattern-analyzer.js`
 - Updates patterns.json with new/updated patterns
 - Identifies consolidation candidates
 - Timeout: 120s
@@ -315,35 +328,54 @@ Generate actionable recommendations based on learning metrics and patterns.
 
 ### Auto-Tagger (Daily 10:00)
 - Analyzes untagged or under-tagged memories
-- Assigns tags based on pattern matching
-- Updates memory frontmatter
-- Updates tag-index.json
-- Timeout: 90s
+- **执行方式**: `node scripts/learning-system/auto-tagger.js`
+- Assigns tags based on keyword matching rules
+- Updates memory frontmatter and tag-index.json
+- Timeout: 120s
 - Isolation: sessionTarget=isolated
 
 ### Consolidation Analyzer (Weekly Sunday 08:00)
-- Identifies consolidation candidates
+- Identifies consolidation candidates via Jaccard similarity
+- **执行方式**: `node scripts/learning-system/consolidation-analyzer.js`
 - Generates consolidation report
 - Updates consolidation-log.json
 - Timeout: 120s
 - Isolation: sessionTarget=isolated
 
 ### Learning Metrics Tracker (Weekly Sunday 09:00)
-- Aggregates access metrics from query cache
+- Aggregates file counts, lifecycle stages, tag coverage, pattern refs
+- **执行方式**: `node scripts/learning-system/learning-metrics.js`
 - Calculates KPIs
-- Generates learning metrics report
 - Updates learning-metrics.json
-- Timeout: 90s
+- Timeout: 120s
 - Isolation: sessionTarget=isolated
 
 ### Recommendation Generator (Weekly Sunday 10:00)
 - Analyzes patterns, metrics, and consolidation candidates
+- **执行方式**: `node scripts/learning-system/recommendation-generator.js`
 - Generates optimization recommendations
 - Updates recommendations.json
 - Timeout: 120s
 - Isolation: sessionTarget=isolated
 
-## 7. Integration Points
+## 7. Plugin Integration (Hermes 闭环)
+
+### learning-loop-plugin (`agent_end` hook)
+- 每次对话结束时自动执行
+- 检测用户反馈信号（修正词/肯定词）
+- 写入 `people/国栋.md` 显式修正/隐式接受记录
+- 非平凡任务完成后，写入 `learning-queue/pending/` 待 pattern 提取
+- 跳过 heartbeat 和 isolated 会话
+
+### pattern-loader-plugin (`before_agent_start` hook)
+- 每次对话开始时自动执行
+- 从用户消息提取关键词
+- 搜索 `patterns/` 中匹配的历史模式
+- 注入匹配的 pattern 摘要到上下文
+- 自动递增匹配 pattern 的 `refs` 计数
+- 仅在前 3 轮对话时检索（避免重复注入）
+
+## 8. Integration Points
 
 ### With Retrieval System
 - Use semantic index for pattern detection

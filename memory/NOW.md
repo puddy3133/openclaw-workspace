@@ -2,19 +2,23 @@
 
 ## 当前优先级
 
-1. **飞书 Multi-Agent 对话中继改造** ✅ 完成（2026-04-13）
-   - 话题锁定功能已实现
-   - 测试通过：小乔↔大乔可围绕话题自主对话
-   - **待优化**: 调整轮询参数（建议用户确认）
+1. **智慧人事系统投标方案**（紧急，进行中）
+   - 招标文件已分析，技术响应策略已制定
+   - 需输出完整技术标文档
 
-2. **大乔服务器维护**（进行中）
-   - ✅ 已完成：watchdog 禁用，Gateway 稳定
-   - ✅ 已完成：基础目录结构创建
-   - 待执行：文件描述符限制调整（待用户确认）
+2. **记忆系统全面修复**（进行中）
+   - 两轮优化（8 项 + 19 项）已完成 7/19
+   - 剩余待修复：H4→H5→M1-M6→L1-L5（12 项）
 
 ## 待办
-- [ ] 大乔文件描述符限制调整（待用户确认）
-- [ ] 优化 Multi-Agent 轮询参数（poll_interval: 30→10s, window: 60→180s）
+- [ ] H5: 扩展 expiration-policy 覆盖范围（.learning/ / learning-queue/ / daily-context/）
+- [ ] M1: RULES.md 补充后台分析任务豁免说明
+- [ ] M2: 合并 puddy.md → 国栋.md，修正时区（EST→CST）
+- [ ] M3: .index/keywords.json 替换测试数据
+- [ ] M4: .index/project-tags.json 补全 22 个项目
+- [ ] M5: TASKS.md 补录 7 个超时 cron 任务
+- [ ] M6: daily-context/ 纳入 INDEX.md 导航 + expiration-policy
+- [ ] L1-L5: MEMORY.md 路径、INDEX.md 计数、路径前缀、cron-reports/、logs/ 目录
 
 ---
-*更新时间：2026-04-13 02:40 CST（心跳补录）*
+*更新时间：2026-04-16 14:35 CST*

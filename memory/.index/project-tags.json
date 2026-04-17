@@ -1,37 +1,117 @@
 {
   "version": "2.0",
-  "lastUpdated": "2026-04-07T04:00:00+08:00",
-  "description": "项目标签索引",
+  "lastUpdated": "2026-04-16T14:40:00+08:00",
+  "description": "项目标签索引（已补全所有 22 个项目）。路径均相对于 memory/ 目录，与 .learning/tag-index.json 保持一致",
   "projects": {
     "persistent-agent-architecture": {
       "tags": ["agent", "architecture", "memory"],
-      "path": "memory/projects/persistent-agent-architecture.md",
+      "path": "projects/persistent-agent-architecture.md",
       "lastUpdated": "2026-02-22"
     },
     "fish-audio-tts": {
       "tags": ["tts", "voice", "audio"],
-      "path": "memory/projects/fish-audio-tts.md",
+      "path": "projects/fish-audio-tts.md",
       "lastUpdated": "2026-04-06"
     },
     "frontend-slides": {
       "tags": ["frontend", "ppt", "slides"],
-      "path": "memory/projects/frontend-slides.md",
+      "path": "projects/frontend-slides.md",
       "lastUpdated": "2026-04-05"
     },
     "大乔服务器": {
       "tags": ["server", "infrastructure", "monitoring"],
-      "path": "memory/projects/大乔服务器.md",
+      "path": "projects/大乔服务器.md",
       "lastUpdated": "2026-03-23"
     },
     "macmini-zhc": {
       "tags": ["mac", "remote", "frpc"],
-      "path": "memory/projects/macmini-zhc.md",
+      "path": "projects/macmini-zhc.md",
       "lastUpdated": "2026-04-06"
     },
     "coder-agent-completion": {
       "tags": ["agent", "coder", "subagent"],
-      "path": "memory/projects/coder-agent-completion.md",
+      "path": "projects/coder-agent-completion.md",
       "lastUpdated": "2026-04-01"
+    },
+    "ai训练营作业": {
+      "tags": ["learning", "training", "homework"],
+      "path": "projects/ai训练营作业.md",
+      "lastUpdated": "2026-03-01"
+    },
+    "openclaw-tui": {
+      "tags": ["tui", "cli", "interface"],
+      "path": "projects/openclaw-tui.md",
+      "lastUpdated": "2026-03-01"
+    },
+    "hermes-agent-调研": {
+      "tags": ["agent", "research", "hermes"],
+      "path": "projects/hermes-agent-调研.md",
+      "lastUpdated": "2026-04-14"
+    },
+    "mac-mini-tts": {
+      "tags": ["mac", "tts", "voice"],
+      "path": "projects/mac-mini-tts.md",
+      "lastUpdated": "2026-04-01"
+    },
+    "macmini-zhc-config-report": {
+      "tags": ["mac", "remote", "report"],
+      "path": "projects/macmini-zhc-config-report.md",
+      "lastUpdated": "2026-04-06"
+    },
+    "multi-agent": {
+      "tags": ["agent", "orchestration", "feishu"],
+      "path": "projects/multi-agent.md",
+      "lastUpdated": "2026-04-13"
+    },
+    "voice-system-plan": {
+      "tags": ["tts", "voice", "planning"],
+      "path": "projects/voice-system-plan.md",
+      "lastUpdated": "2026-04-01"
+    },
+    "waytoagi-文章学习": {
+      "tags": ["learning", "article", "waytoagi"],
+      "path": "projects/waytoagi-文章学习.md",
+      "lastUpdated": "2026-03-14"
+    },
+    "个人学习系统": {
+      "tags": ["learning", "system", "personal"],
+      "path": "projects/个人学习系统.md",
+      "lastUpdated": "2026-04-07"
+    },
+    "大乔": {
+      "tags": ["agent", "daqiao", "ai"],
+      "path": "projects/大乔.md",
+      "lastUpdated": "2026-03-15"
+    },
+    "智慧人事一体化服务系统-投标技术方案模板": {
+      "tags": ["bidding", "hr", "proposal", "template"],
+      "path": "projects/智慧人事一体化服务系统-投标技术方案模板.md",
+      "lastUpdated": "2026-04-16"
+    },
+    "智慧人事一体化服务系统（2026）投标": {
+      "tags": ["bidding", "hr", "procurement"],
+      "path": "projects/智慧人事一体化服务系统（2026）投标.md",
+      "lastUpdated": "2026-04-16"
+    },
+    "智慧人事投标-详细规划": {
+      "tags": ["bidding", "hr", "planning"],
+      "path": "projects/智慧人事投标-详细规划.md",
+      "lastUpdated": "2026-04-16"
+    },
+    "火山引擎-tts-调研": {
+      "tags": ["tts", "volcengine", "research"],
+      "path": "projects/火山引擎-tts-调研.md",
+      "lastUpdated": "2026-04-06"
+    },
+    "飞书-multi-agent-对话中继": {
+      "tags": ["feishu", "agent", "relay"],
+      "path": "projects/飞书-multi-agent-对话中继.md",
+      "lastUpdated": "2026-04-13"
+    },
+    "飞书官方插件多人会话改造": {
+      "tags": ["feishu", "plugin", "session"],
+      "path": "projects/飞书官方插件多人会话改造.md",
+      "lastUpdated": "2026-04-10"
     }
   }
 }

@@ -6,7 +6,7 @@
     "国栋": {
       "aliases": ["puddy", "Zz"],
       "role": "用户/管理员",
-      "path": "memory/people/国栋.md",
+      "path": "people/国栋.md",
       "tags": ["admin", "user"],
       "relations": {
         "大乔": "AI助手/姐姐",
@@ -16,13 +16,13 @@
     "大乔": {
       "aliases": ["daqiao"],
       "role": "AI助手/姐姐",
-      "path": "memory/people/daqiao.md",
+      "path": "people/daqiao.md",
       "tags": ["ai", "assistant"],
       "server": "腾讯云"
     },
     "zhc": {
       "role": "同事/合作伙伴",
-      "path": "memory/people/zhc.md",
+      "path": "people/zhc.md",
       "tags": ["colleague", "macmini"]
     }
   }

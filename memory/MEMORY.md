@@ -25,6 +25,7 @@
 13. 非平凡任务成功后触发学习闭环：提取推理模式 → 存入 `patterns/`
 14. 任务开始前检索 `patterns/` 中相关历史模式，优先复用
 15. 用户修正输出后：记录修正内容 + 原因 → 更新 `people/国栋.md` 反馈信号
+16. **自动蒸馏**：每月清理一次过期知识，将冗余 `day/*.md` 压缩为 `weekly/` 摘要
 
 ## 知识库导航
 
@@ -32,12 +33,10 @@
 |-----------|------|
 | [INDEX.md](INDEX.md) | 完整知识分类导航 |
 | [RULES.md](RULES.md) | 系统级约束（安全/执行/性能/Cron） |
-| [lessons/rules.md](lessons/rules.md) | 操作知识（平台规则、工具用法） |
-| [lessons/principles.md](lessons/principles.md) | 工作原则 |
-| [lessons/learned.md](lessons/learned.md) | 历史教训、避坑指南 |
-| [patterns/](patterns/) | Hermes 学习闭环提取的推理模式库 |
+| [lessons/](lessons/) | 事实性知识库（平台规则、工具用法） |
+| [patterns/](patterns/) | 推理模式库（Hermes 进化核心） |
 | [people/国栋.md](people/国栋.md) | 用户四维模型（偏好/决策/模式/反馈） |
-| [day/](day/) | 所有日常日志 |
+| [day/](day/) | 每日对话流水日志 |
 
 ---
-*更新时间：2026-04-13*
+*更新时间：2026-04-16*

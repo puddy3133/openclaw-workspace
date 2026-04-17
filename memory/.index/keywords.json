@@ -1,23 +1,18 @@
 {
-  "测试归档功能": [
-    "2026-03-16"
-  ],
-  "成功写入": [
-    "2026-03-16"
-  ],
-  "编写": [
-    "2026-03-16"
-  ],
-  "CPU": [
-    "2026-03-16"
-  ],
-  "监控脚本": [
-    "2026-03-16"
-  ],
-  "成功完成": [
-    "2026-03-16"
-  ],
-  "已测试": [
-    "2026-03-16"
-  ]
+  "version": "2.0",
+  "lastUpdated": "2026-04-16T14:35:00+08:00",
+  "description": "关键词检索索引，由 nightly-learning 任务维护",
+  "keywords": {
+    "agent": ["lessons/decisions.md", "projects/persistent-agent-architecture.md", "patterns/multi-agent-orchestration.md"],
+    "memory": ["lessons/memory-file-usage.md", "patterns/nightly-learning.md", "learning-schema.md"],
+    "cron": ["lessons/cron-ops.md", "patterns/nightly-learning.md", "expiration-policy.md"],
+    "feishu": ["projects/大乔服务器.md", "lessons/learned.md"],
+    "bidding": ["patterns/bidding-analysis.md", "patterns/technical-proposal.md"],
+    "learning": ["patterns/knowledge-digestion.md", "patterns/nightly-learning.md", "learning-schema.md"],
+    "orchestration": ["patterns/multi-agent-orchestration.md"],
+    "tts": ["projects/fish-audio-tts.md"],
+    "server": ["projects/大乔服务器.md"],
+    "proposal": ["patterns/technical-proposal.md"]
+  },
+  "note": "此索引由 nightly-learning cron job 自动更新，手动编辑可能被覆盖"
 }

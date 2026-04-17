@@ -97,6 +97,31 @@ lifecycle_stage: {{active|decay|expired}}
 3. Remove lifecycle fields from all files (optional)
 4. Restart normal operations
 
+## Additional Directory Policies
+
+### `.learning/` JSON Files
+| 文件 | 保留策略 |
+|------|---------|
+| `patterns.json` | 永久保留；pattern 条目 confidence < 0.50 且 frequency < 2 超过 90 天后删除 |
+| `tag-index.json` | 永久保留；计数每季度重算 |
+| `consolidation-log.json` | completed 条目保留 180 天后归档 |
+| `learning-metrics.json` | 每周滚动，历史快照存入 `archive/learning-metrics/` |
+| `recommendations.json` | rejected/completed 条目 30 天后清理 |
+
+### `learning-queue/` 条目
+- `pending/` → 超过 14 天未处理：自动移入 `archive/`
+- `scheduled/` → 超过 7 天未执行：降级回 `pending/`
+- `completed/` → 保留 60 天后归档至 `archive/learning-queue/`
+- `completion-log.json` → 永久保留
+
+### `daily-context/` 文件
+- 保留最近 7 天，超过 7 天自动删除（日志已在 day/ 中持久化）
+- 格式：`daily-context-{YYYY-MM-DD}.json`
+
+### `day/` 日志文件
+- 活跃：最近 45 天
+- 超过 45 天：迁移至 `archive/day/`（Memory Lifecycle Processor 负责）
+
 ## Monitoring
 
 - Track daily: files moved to archive, decay-stage count, lifecycle errors

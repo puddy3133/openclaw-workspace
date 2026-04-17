@@ -1,0 +1,443 @@
+{
+  "version": "1.0",
+  "last_updated": "2026-04-17T02:00:39.422Z",
+  "tags": {
+    "learning": {
+      "count": 20,
+      "memories": [
+        "patterns/knowledge-digestion.md",
+        "lessons/cli-tools-ecosystem.md",
+        "lessons/learning-loop.md",
+        "lessons/cron-ops.md",
+        "lessons/decisions.md",
+        "lessons/hermes-agent-research-report.md",
+        "lessons/humanizer-zh-skill.md",
+        "lessons/learned.md",
+        "lessons/ljg-redline-thinking.md",
+        "lessons/memory-file-usage.md",
+        "lessons/pageindex-rag.md",
+        "lessons/principles.md",
+        "lessons/rules.md",
+        "projects/macmini-zhc-config-report.md",
+        "projects/voice-system-plan.md",
+        "projects/个人学习系统.md",
+        "projects/智慧人事一体化服务系统-投标技术方案模板.md",
+        "projects/智慧人事一体化服务系统（2026）投标.md",
+        "projects/智慧人事投标-详细规划.md",
+        "patterns/nightly-learning.md"
+      ],
+      "auto_assigned": 16,
+      "manual_assigned": 3
+    },
+    "orchestration": {
+      "count": 40,
+      "memories": [
+        "patterns/multi-agent-orchestration.md",
+        "lessons/hermes-agent-research-report.md",
+        "lessons/cli-tools-ecosystem.md",
+        "lessons/cron-ops.md",
+        "lessons/decisions.md",
+        "lessons/humanizer-zh-skill.md",
+        "lessons/learned.md",
+        "lessons/learning-loop.md",
+        "lessons/ljg-redline-thinking.md",
+        "lessons/memory-file-usage.md",
+        "lessons/pageindex-rag.md",
+        "lessons/principles.md",
+        "lessons/rules.md",
+        "lessons/user-modeling-rules.md",
+        "projects/ai训练营作业.md",
+        "projects/coder-agent-completion.md",
+        "projects/fish-audio-tts.md",
+        "projects/frontend-slides.md",
+        "projects/hermes-agent-调研.md",
+        "projects/mac-mini-tts.md",
+        "projects/macmini-zhc-config-report.md",
+        "projects/macmini-zhc.md",
+        "projects/multi-agent.md",
+        "projects/openclaw-tui.md",
+        "projects/persistent-agent-architecture.md",
+        "projects/voice-system-plan.md",
+        "projects/waytoagi-文章学习.md",
+        "projects/个人学习系统.md",
+        "projects/大乔.md",
+        "projects/大乔服务器.md",
+        "projects/智慧人事一体化服务系统-投标技术方案模板.md",
+        "projects/智慧人事一体化服务系统（2026）投标.md",
+        "projects/智慧人事投标-详细规划.md",
+        "projects/火山引擎-tts-调研.md",
+        "projects/飞书-multi-agent-对话中继.md",
+        "projects/飞书官方插件多人会话改造.md",
+        "patterns/bidding-analysis.md",
+        "patterns/knowledge-digestion.md",
+        "patterns/nightly-learning.md",
+        "patterns/technical-proposal.md"
+      ],
+      "auto_assigned": 38,
+      "manual_assigned": 2
+    },
+    "agent": {
+      "count": 24,
+      "memories": [
+        "projects/persistent-agent-architecture.md",
+        "projects/coder-agent-completion.md",
+        "lessons/hermes-agent-research-report.md",
+        "lessons/cli-tools-ecosystem.md",
+        "lessons/cron-ops.md",
+        "lessons/decisions.md",
+        "lessons/learned.md",
+        "lessons/learning-loop.md",
+        "lessons/ljg-redline-thinking.md",
+        "lessons/pageindex-rag.md",
+        "lessons/principles.md",
+        "lessons/rules.md",
+        "lessons/user-modeling-rules.md",
+        "projects/fish-audio-tts.md",
+        "projects/hermes-agent-调研.md",
+        "projects/macmini-zhc-config-report.md",
+        "projects/macmini-zhc.md",
+        "projects/voice-system-plan.md",
+        "projects/智慧人事一体化服务系统-投标技术方案模板.md",
+        "projects/智慧人事一体化服务系统（2026）投标.md",
+        "projects/智慧人事投标-详细规划.md",
+        "projects/飞书官方插件多人会话改造.md",
+        "patterns/knowledge-digestion.md",
+        "patterns/multi-agent-orchestration.md"
+      ],
+      "auto_assigned": 21,
+      "manual_assigned": 3
+    },
+    "tts": {
+      "count": 19,
+      "memories": [
+        "projects/fish-audio-tts.md",
+        "lessons/decisions.md",
+        "lessons/hermes-agent-research-report.md",
+        "lessons/humanizer-zh-skill.md",
+        "lessons/learned.md",
+        "lessons/learning-loop.md",
+        "lessons/ljg-redline-thinking.md",
+        "lessons/principles.md",
+        "lessons/rules.md",
+        "projects/ai训练营作业.md",
+        "projects/mac-mini-tts.md",
+        "projects/macmini-zhc-config-report.md",
+        "projects/macmini-zhc.md",
+        "projects/persistent-agent-architecture.md",
+        "projects/voice-system-plan.md",
+        "projects/智慧人事一体化服务系统-投标技术方案模板.md",
+        "projects/智慧人事一体化服务系统（2026）投标.md",
+        "projects/智慧人事投标-详细规划.md",
+        "projects/火山引擎-tts-调研.md"
+      ],
+      "auto_assigned": 18,
+      "manual_assigned": 1
+    },
+    "feishu": {
+      "count": 20,
+      "memories": [
+        "lessons/rules.md",
+        "lessons/learned.md",
+        "lessons/cli-tools-ecosystem.md",
+        "lessons/cron-ops.md",
+        "lessons/decisions.md",
+        "lessons/hermes-agent-research-report.md",
+        "lessons/humanizer-zh-skill.md",
+        "lessons/learning-loop.md",
+        "lessons/ljg-redline-thinking.md",
+        "lessons/pageindex-rag.md",
+        "lessons/principles.md",
+        "projects/ai训练营作业.md",
+        "projects/coder-agent-completion.md",
+        "projects/fish-audio-tts.md",
+        "projects/macmini-zhc-config-report.md",
+        "projects/macmini-zhc.md",
+        "projects/voice-system-plan.md",
+        "projects/智慧人事一体化服务系统-投标技术方案模板.md",
+        "projects/智慧人事投标-详细规划.md",
+        "projects/飞书官方插件多人会话改造.md"
+      ],
+      "auto_assigned": 18,
+      "manual_assigned": 2
+    },
+    "memory-system": {
+      "count": 42,
+      "memories": [
+        "lessons/memory-file-usage.md",
+        "learning-schema.md",
+        "expiration-policy.md",
+        "lessons/cli-tools-ecosystem.md",
+        "lessons/cron-ops.md",
+        "lessons/decisions.md",
+        "lessons/hermes-agent-research-report.md",
+        "lessons/humanizer-zh-skill.md",
+        "lessons/learned.md",
+        "lessons/learning-loop.md",
+        "lessons/ljg-redline-thinking.md",
+        "lessons/pageindex-rag.md",
+        "lessons/principles.md",
+        "lessons/rules.md",
+        "lessons/user-modeling-rules.md",
+        "projects/ai训练营作业.md",
+        "projects/coder-agent-completion.md",
+        "projects/fish-audio-tts.md",
+        "projects/frontend-slides.md",
+        "projects/hermes-agent-调研.md",
+        "projects/mac-mini-tts.md",
+        "projects/macmini-zhc-config-report.md",
+        "projects/macmini-zhc.md",
+        "projects/multi-agent.md",
+        "projects/openclaw-tui.md",
+        "projects/persistent-agent-architecture.md",
+        "projects/voice-system-plan.md",
+        "projects/waytoagi-文章学习.md",
+        "projects/个人学习系统.md",
+        "projects/大乔.md",
+        "projects/大乔服务器.md",
+        "projects/智慧人事一体化服务系统-投标技术方案模板.md",
+        "projects/智慧人事一体化服务系统（2026）投标.md",
+        "projects/智慧人事投标-详细规划.md",
+        "projects/火山引擎-tts-调研.md",
+        "projects/飞书-multi-agent-对话中继.md",
+        "projects/飞书官方插件多人会话改造.md",
+        "patterns/bidding-analysis.md",
+        "patterns/knowledge-digestion.md",
+        "patterns/multi-agent-orchestration.md",
+        "patterns/nightly-learning.md",
+        "patterns/technical-proposal.md"
+      ],
+      "auto_assigned": 39,
+      "manual_assigned": 3
+    },
+    "cron": {
+      "count": 15,
+      "memories": [
+        "lessons/cron-ops.md",
+        "lessons/rules.md",
+        "lessons/cli-tools-ecosystem.md",
+        "lessons/decisions.md",
+        "lessons/hermes-agent-research-report.md",
+        "lessons/learned.md",
+        "lessons/learning-loop.md",
+        "projects/macmini-zhc-config-report.md",
+        "projects/persistent-agent-architecture.md",
+        "projects/voice-system-plan.md",
+        "projects/智慧人事一体化服务系统-投标技术方案模板.md",
+        "projects/智慧人事一体化服务系统（2026）投标.md",
+        "projects/智慧人事投标-详细规划.md",
+        "patterns/nightly-learning.md",
+        "patterns/technical-proposal.md"
+      ],
+      "auto_assigned": 12,
+      "manual_assigned": 2
+    },
+    "security": {
+      "count": 16,
+      "memories": [
+        "lessons/rules.md",
+        "lessons/decisions.md",
+        "lessons/hermes-agent-research-report.md",
+        "lessons/humanizer-zh-skill.md",
+        "lessons/learned.md",
+        "lessons/ljg-redline-thinking.md",
+        "lessons/user-modeling-rules.md",
+        "projects/ai训练营作业.md",
+        "projects/fish-audio-tts.md",
+        "projects/macmini-zhc-config-report.md",
+        "projects/macmini-zhc.md",
+        "projects/voice-system-plan.md",
+        "projects/智慧人事一体化服务系统-投标技术方案模板.md",
+        "projects/智慧人事一体化服务系统（2026）投标.md",
+        "projects/智慧人事投标-详细规划.md",
+        "patterns/multi-agent-orchestration.md"
+      ],
+      "auto_assigned": 15,
+      "manual_assigned": 1
+    },
+    "server": {
+      "count": 13,
+      "memories": [
+        "projects/大乔服务器.md",
+        "projects/macmini-zhc.md",
+        "lessons/decisions.md",
+        "lessons/hermes-agent-research-report.md",
+        "lessons/learned.md",
+        "lessons/ljg-redline-thinking.md",
+        "lessons/principles.md",
+        "lessons/rules.md",
+        "projects/mac-mini-tts.md",
+        "projects/macmini-zhc-config-report.md",
+        "projects/voice-system-plan.md",
+        "projects/智慧人事一体化服务系统-投标技术方案模板.md",
+        "projects/智慧人事投标-详细规划.md"
+      ],
+      "auto_assigned": 11,
+      "manual_assigned": 2
+    },
+    "memory": {
+      "count": 26,
+      "memories": [
+        "lessons/cli-tools-ecosystem.md",
+        "lessons/cron-ops.md",
+        "lessons/decisions.md",
+        "lessons/hermes-agent-research-report.md",
+        "lessons/humanizer-zh-skill.md",
+        "lessons/learned.md",
+        "lessons/learning-loop.md",
+        "lessons/ljg-redline-thinking.md",
+        "lessons/memory-file-usage.md",
+        "lessons/pageindex-rag.md",
+        "lessons/principles.md",
+        "lessons/rules.md",
+        "lessons/user-modeling-rules.md",
+        "projects/coder-agent-completion.md",
+        "projects/hermes-agent-调研.md",
+        "projects/macmini-zhc-config-report.md",
+        "projects/macmini-zhc.md",
+        "projects/persistent-agent-architecture.md",
+        "projects/voice-system-plan.md",
+        "projects/个人学习系统.md",
+        "projects/智慧人事一体化服务系统-投标技术方案模板.md",
+        "projects/智慧人事一体化服务系统（2026）投标.md",
+        "projects/智慧人事投标-详细规划.md",
+        "patterns/knowledge-digestion.md",
+        "patterns/multi-agent-orchestration.md",
+        "patterns/nightly-learning.md"
+      ],
+      "auto_assigned": 26,
+      "manual_assigned": 0
+    },
+    "frontend": {
+      "count": 16,
+      "memories": [
+        "lessons/cli-tools-ecosystem.md",
+        "lessons/cron-ops.md",
+        "lessons/decisions.md",
+        "lessons/learned.md",
+        "lessons/ljg-redline-thinking.md",
+        "lessons/rules.md",
+        "projects/coder-agent-completion.md",
+        "projects/frontend-slides.md",
+        "projects/macmini-zhc-config-report.md",
+        "projects/macmini-zhc.md",
+        "projects/openclaw-tui.md",
+        "projects/voice-system-plan.md",
+        "projects/智慧人事一体化服务系统-投标技术方案模板.md",
+        "projects/智慧人事一体化服务系统（2026）投标.md",
+        "projects/智慧人事投标-详细规划.md",
+        "patterns/multi-agent-orchestration.md"
+      ],
+      "auto_assigned": 16,
+      "manual_assigned": 0
+    },
+    "bidding": {
+      "count": 17,
+      "memories": [
+        "lessons/cron-ops.md",
+        "lessons/decisions.md",
+        "lessons/hermes-agent-research-report.md",
+        "lessons/humanizer-zh-skill.md",
+        "lessons/learned.md",
+        "lessons/memory-file-usage.md",
+        "lessons/principles.md",
+        "lessons/rules.md",
+        "projects/mac-mini-tts.md",
+        "projects/macmini-zhc-config-report.md",
+        "projects/voice-system-plan.md",
+        "projects/智慧人事一体化服务系统-投标技术方案模板.md",
+        "projects/智慧人事一体化服务系统（2026）投标.md",
+        "projects/智慧人事投标-详细规划.md",
+        "patterns/bidding-analysis.md",
+        "patterns/multi-agent-orchestration.md",
+        "patterns/technical-proposal.md"
+      ],
+      "auto_assigned": 16,
+      "manual_assigned": 0
+    },
+    "procurement": {
+      "count": 1,
+      "memories": [
+        "patterns/bidding-analysis.md"
+      ],
+      "auto_assigned": 0,
+      "manual_assigned": 0
+    },
+    "analysis": {
+      "count": 1,
+      "memories": [
+        "patterns/bidding-analysis.md"
+      ],
+      "auto_assigned": 0,
+      "manual_assigned": 0
+    },
+    "distillation": {
+      "count": 1,
+      "memories": [
+        "patterns/knowledge-digestion.md"
+      ],
+      "auto_assigned": 0,
+      "manual_assigned": 0
+    },
+    "knowledge-management": {
+      "count": 1,
+      "memories": [
+        "patterns/knowledge-digestion.md"
+      ],
+      "auto_assigned": 0,
+      "manual_assigned": 0
+    },
+    "memory-relay": {
+      "count": 1,
+      "memories": [
+        "patterns/multi-agent-orchestration.md"
+      ],
+      "auto_assigned": 0,
+      "manual_assigned": 0
+    },
+    "teamwork": {
+      "count": 1,
+      "memories": [
+        "patterns/multi-agent-orchestration.md"
+      ],
+      "auto_assigned": 0,
+      "manual_assigned": 0
+    },
+    "batch-processing": {
+      "count": 1,
+      "memories": [
+        "patterns/nightly-learning.md"
+      ],
+      "auto_assigned": 0,
+      "manual_assigned": 0
+    },
+    "proposal": {
+      "count": 1,
+      "memories": [
+        "patterns/technical-proposal.md"
+      ],
+      "auto_assigned": 0,
+      "manual_assigned": 0
+    },
+    "planning": {
+      "count": 1,
+      "memories": [
+        "patterns/technical-proposal.md"
+      ],
+      "auto_assigned": 0,
+      "manual_assigned": 0
+    },
+    "documentation": {
+      "count": 1,
+      "memories": [
+        "patterns/technical-proposal.md"
+      ],
+      "auto_assigned": 0,
+      "manual_assigned": 0
+    }
+  },
+  "tag_stats": {
+    "total_tags": 22,
+    "auto_assigned_ratio": 0.9283018867924528,
+    "coverage": 1
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-04-16T17:04:45.573Z",
+  "period": "2026-04-01 to 2026-04-17",
+  "recommendations": {
+    "merge": [],
+    "tag": [],
+    "archive": [],
+    "retrieval": [
+      {
+        "id": "r_auto_002",
+        "priority": "high",
+        "title": "Pattern 从未被引用过",
+        "description": "所有 pattern 的 refs 计数为 0，说明 pattern-loader 插件未在任务启动时检索和引用历史模式。",
+        "action": "确认 pattern-loader-plugin 已注册并在 before_agent_start hook 中运行"
+      }
+    ],
+    "performance": [
+      {
+        "id": "p_auto_001",
+        "priority": "low",
+        "title": "查询指标未采集",
+        "description": "total_queries=0，当前无查询日志记录。此指标需要 memory-tfidf-plugin 配合写入。"
+      }
+    ]
+  },
+  "summary": {
+    "total": 2,
+    "by_priority": {
+      "high": 1,
+      "medium": 0,
+      "low": 1
+    }
+  },
+  "high_priority_items": [
+    "r_auto_002: Pattern 从未被引用过"
+  ]
+}

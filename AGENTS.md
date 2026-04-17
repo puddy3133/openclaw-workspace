@@ -19,7 +19,11 @@ Before doing anything else:
 7. 【新增】检查学习库状态 — 查看 `memory/learning-queue/in-progress/checkpoint.json`
    - 如有断点 → 询问用户是否继续学习
    - 如 `scheduled/` 积压 >10 条 → 提醒用户
-8. Read `memory/YYYY-MM-DD.md` (**真实今日** + 昨日) for recent context
+8. 【Hermes】加载推理模式 — 扫描 `memory/patterns/` 目录
+   - 读取最近 5 个 pattern 文件的 frontmatter（task-type, context, tags）
+   - 缓存到当前会话，用于任务开始前检索匹配
+   - 读取 `memory/people/国栋.md` 确认当前用户偏好
+9. Read `memory/YYYY-MM-DD.md` (**真实今日** + 昨日) for recent context
    - ⚠️ **重要**：如果当日日志不存在，立即创建，**禁止**用旧文件凑合
 8. **If in MAIN SESSION** (direct chat with your human): Also read `MEMORY.md`
 
@@ -76,8 +80,10 @@ openclaw cron run <job-id>
 4. Run 启动检查
 5. Read `memory/INDEX.md`
 6. Read `memory/NOW.md`
-7. Read `memory/YYYY-MM-DD.md`（今日 + 昨日）
-8. If in MAIN SESSION: Read `MEMORY.md`
+7. 检查学习库状态（learning-queue）
+8. 【Hermes】加载 `memory/patterns/` 最近 5 个推理模式 + `people/国栋.md` 用户偏好
+9. Read `memory/YYYY-MM-DD.md`（今日 + 昨日）
+10. If in MAIN SESSION: Read `MEMORY.md`
 
 ### 运行
 - 执行任务（含强制归档）
@@ -113,9 +119,12 @@ Based on layered classification + progressive disclosure:
 │   ├── STATE.md           # Today's status
 │   ├── YYYY-MM-DD.md      # Daily logs
 │   ├── lessons/           # Pitfalls + solutions
+│   ├── patterns/          # Hermes reasoning patterns (reusable methods)
 │   ├── decisions/         # Major decisions
 │   ├── projects/          # Project status
-│   └── people/            # People profiles
+│   ├── people/            # People profiles (4D user model)
+│   ├── .learning/         # Auto-learning data (patterns.json, tag-index, metrics)
+│   └── archive/           # Expired memories (lifecycle managed)
 ```
 
 ### 📝 Memory Routing Rules

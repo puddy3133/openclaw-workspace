@@ -6,6 +6,8 @@
 *.secret
 .env
 config/secrets.json
+memory/secrets/
+memory/chat-secret/
 
 # 大文件/缓存
 *.log

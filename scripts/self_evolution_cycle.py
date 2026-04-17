@@ -11,6 +11,7 @@ ROOT = Path(__file__).resolve().parents[2]
 CRON_JOBS = ROOT / "cron" / "jobs.json"
 CRON_RUNS = ROOT / "cron" / "runs"
 OUT_BASE = ROOT / "workspace" / "self_evolution"
+MEMORY_BASE = ROOT / "workspace" / "memory"
 
 
 def load_jobs():
@@ -45,6 +46,108 @@ def load_recent_runs(hours):
                 item["_ts"] = ts.isoformat()
                 records.append(item)
     return records
+
+
+def assess_memory_quality():
+    """Assess memory system health: file counts, lifecycle compliance, pattern usage."""
+    quality = {
+        "lessons_count": 0,
+        "patterns_count": 0,
+        "projects_count": 0,
+        "people_count": 0,
+        "day_active_count": 0,
+        "day_overdue_count": 0,
+        "archive_count": 0,
+        "pattern_refs_total": 0,
+        "tag_coverage": 0.0,
+        "learning_completed": 0,
+        "recommendations": [],
+    }
+
+    # Count files in each directory
+    for subdir, key in [
+        ("lessons", "lessons_count"),
+        ("patterns", "patterns_count"),
+        ("projects", "projects_count"),
+        ("people", "people_count"),
+    ]:
+        d = MEMORY_BASE / subdir
+        if d.exists():
+            quality[key] = len([f for f in d.iterdir() if f.suffix == ".md" and f.name != "README.md"])
+
+    # Day logs: count active vs overdue
+    day_dir = MEMORY_BASE / "day"
+    if day_dir.exists():
+        now = dt.datetime.now()
+        cutoff = now - dt.timedelta(days=45)
+        for f in day_dir.iterdir():
+            if f.suffix != ".md":
+                continue
+            parts = f.stem.split("-")
+            try:
+                fdate = dt.datetime(int(parts[0]), int(parts[1]), int(parts[2]))
+                if fdate < cutoff:
+                    quality["day_overdue_count"] += 1
+                else:
+                    quality["day_active_count"] += 1
+            except (ValueError, IndexError):
+                quality["day_overdue_count"] += 1
+
+    # Archive count
+    archive_dir = MEMORY_BASE / "archive" / "day"
+    if archive_dir.exists():
+        quality["archive_count"] = len([f for f in archive_dir.iterdir() if f.suffix == ".md"])
+
+    # Pattern refs (from frontmatter)
+    patterns_dir = MEMORY_BASE / "patterns"
+    if patterns_dir.exists():
+        for f in patterns_dir.iterdir():
+            if f.suffix == ".md" and f.name != "README.md":
+                content = f.read_text(encoding="utf-8", errors="ignore")
+                for line in content.splitlines():
+                    if line.strip().startswith("refs:"):
+                        try:
+                            quality["pattern_refs_total"] += int(line.split(":")[1].strip())
+                        except (ValueError, IndexError):
+                            pass
+
+    # Tag coverage from .learning/tag-index.json
+    tag_index = MEMORY_BASE / ".learning" / "tag-index.json"
+    if tag_index.exists():
+        try:
+            ti = json.loads(tag_index.read_text(encoding="utf-8"))
+            quality["tag_coverage"] = ti.get("tag_stats", {}).get("coverage", 0.0)
+        except Exception:
+            pass
+
+    # Learning completed count
+    completion_log = MEMORY_BASE / "learning-queue" / "completed" / "completion-log.json"
+    if completion_log.exists():
+        try:
+            cl = json.loads(completion_log.read_text(encoding="utf-8"))
+            quality["learning_completed"] = cl.get("stats", {}).get("totalCompleted", 0)
+        except Exception:
+            pass
+
+    # Generate memory-specific recommendations
+    if quality["day_overdue_count"] > 5:
+        quality["recommendations"].append(
+            f"day/ 目录有 {quality['day_overdue_count']} 个过期日志未归档，建议运行 memory-lifecycle 任务。"
+        )
+    if quality["patterns_count"] < 5:
+        quality["recommendations"].append(
+            f"patterns/ 仅有 {quality['patterns_count']} 个推理模式，学习闭环积累不足，建议关注非平凡任务后的 pattern 提取。"
+        )
+    if quality["tag_coverage"] < 0.70:
+        quality["recommendations"].append(
+            f"标签覆盖率 {quality['tag_coverage']:.0%}，低于 70% 目标，建议运行 auto-tagger 任务。"
+        )
+    if quality["pattern_refs_total"] == 0 and quality["patterns_count"] > 0:
+        quality["recommendations"].append(
+            "所有 pattern 引用次数为 0，说明推理模式尚未被实际复用。"
+        )
+
+    return quality
 
 
 def summarize(jobs, runs, lookback_hours):
@@ -95,6 +198,10 @@ def summarize(jobs, runs, lookback_hours):
     if not recommendations:
         recommendations.append("当前运行稳定，建议保持节奏并每周复盘一次策略有效性。")
 
+    # Memory quality assessment
+    mem_quality = assess_memory_quality()
+    recommendations.extend(mem_quality.get("recommendations", []))
+
     return {
         "generated_at": dt.datetime.now(dt.timezone.utc).isoformat(),
         "lookback_hours": lookback_hours,
@@ -107,6 +214,18 @@ def summarize(jobs, runs, lookback_hours):
         "duplicates_enabled": duplicates_enabled,
         "per_job": dict(sorted(per_job.items(), key=lambda kv: (-(kv[1]["error"]), kv[0]))),
         "recommendations": recommendations,
+        "memory_quality": {
+            "lessons": mem_quality["lessons_count"],
+            "patterns": mem_quality["patterns_count"],
+            "projects": mem_quality["projects_count"],
+            "people": mem_quality["people_count"],
+            "day_active": mem_quality["day_active_count"],
+            "day_overdue": mem_quality["day_overdue_count"],
+            "archived": mem_quality["archive_count"],
+            "pattern_refs": mem_quality["pattern_refs_total"],
+            "tag_coverage": mem_quality["tag_coverage"],
+            "learning_completed": mem_quality["learning_completed"],
+        },
     }
 
 
@@ -144,6 +263,14 @@ def write_outputs(summary):
             lines.append(f"- {k}: {v}")
     else:
         lines.append("- none")
+    lines.append("")
+
+    lines.append("## Memory Quality")
+    mq = summary.get("memory_quality", {})
+    lines.append(f"- lessons: **{mq.get('lessons', 0)}** | patterns: **{mq.get('patterns', 0)}** | projects: **{mq.get('projects', 0)}**")
+    lines.append(f"- day/ active: **{mq.get('day_active', 0)}** | overdue: **{mq.get('day_overdue', 0)}** | archived: **{mq.get('archived', 0)}**")
+    lines.append(f"- pattern refs: **{mq.get('pattern_refs', 0)}** | tag coverage: **{mq.get('tag_coverage', 0):.0%}**")
+    lines.append(f"- learning completed: **{mq.get('learning_completed', 0)}**")
     lines.append("")
 
     lines.append("## Per Job")

@@ -60,6 +60,13 @@
 |------|---------|-------------|---------|---------|
 | 图片生成：无法直接使用 Google Pro 账号的 Nano Banana 网页版生图 | 2026-03-01 | 提及图片/生图/图像/nano-banana/openai-image-gen | 待决策：1)获取Google API Key 2)浏览器自动化改造 | nano-banana-pro skill, openai-image-gen skill |
 | EvoMap 500 错误 | 2026-02-24 | EvoMap 任务执行 | 监控服务器状态，等待恢复后重试 | evomap_automation/ |
+| self-evo-weekly-retro 超时 | 2026-04-16 | weekly retro 执行 | 已调整 timeout→240s，待验证下次运行 | cron/jobs.json |
+| inspector-weekly-scan 超时 | 2026-04-16 | weekly inspector 执行 | 已调整 timeout→240s，待验证下次运行 | cron/jobs.json |
+| pattern-analyzer 超时（首次）| 2026-04-16 | 每日 09:00 触发 | 已调整 timeout→240s，待验证 | cron/jobs.json |
+| auto-tagger 超时（首次）| 2026-04-16 | 每日 10:00 触发 | 已调整 timeout→240s，待验证 | cron/jobs.json |
+| consolidation-analyzer 超时（首次）| 2026-04-16 | 每周日 08:00 触发 | 已调整 timeout→240s，待验证 | cron/jobs.json |
+| learning-metrics 超时（首次）| 2026-04-16 | 每周日 09:00 触发 | 已调整 timeout→240s，待验证 | cron/jobs.json |
+| recommendation-generator 超时（首次）| 2026-04-16 | 每周日 10:00 触发 | 已调整 timeout→240s，待验证 | cron/jobs.json |
 | ~~定时任务 self-evo-tune 超时失败~~ | ~~2026-03-08~~ | - | ✅ 已修复：超时时间 120s→300s | cron/jobs.json |
 | ~~缺少每日记忆日志创建任务~~ | ~~2026-03-08~~ | - | ✅ 已修复：添加 create-daily-log 任务，每天凌晨 2:00 执行 | jobs.json |
 | ~~时间显示时区混乱~~ | ~~2026-03-08~~ | - | ✅ 已修复：更新 rules.md，强制使用 Asia/Shanghai 时区 | rules.md |

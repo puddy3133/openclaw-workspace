@@ -9,13 +9,15 @@
 ## 文件命名规范
 
 ```
-{task-type}-{YYYY-MM-DD}.md
+{task-type}.md
 ```
 
 示例：
-- `feishu-group-message-2026-04-12.md`
-- `tts-integration-2026-04-06.md`
-- `multi-agent-relay-2026-04-13.md`
+- `feishu-group-message.md`
+- `tts-integration.md`
+- `multi-agent-orchestration.md`
+
+> 不带日期后缀。同一 task-type 的更新直接修改原文件，在文件末尾追加 `## 更新记录` 记录版本变化。
 
 ## Pattern 模板
 
@@ -23,8 +25,11 @@
 ---
 task-type: {类型}
 context: {触发场景一句话描述}
-date: YYYY-MM-DD
+created: YYYY-MM-DD
+updated: YYYY-MM-DD
+version: 1
 tags: [tag1, tag2]
+refs: 0
 ---
 
 ## 场景
@@ -38,6 +43,9 @@ tags: [tag1, tag2]
 
 ## 注意事项
 {坑点或边界条件}
+
+## 更新记录
+- v1 (YYYY-MM-DD): 初始创建
 ```
 
 ## 检索方式
