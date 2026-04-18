@@ -1,37 +1,22 @@
 {
-  "generated_at": "2026-04-16T17:40:13.556940+00:00",
+  "generated_at": "2026-04-17T17:40:41.339902+00:00",
   "lookback_hours": 24,
   "jobs_total": 18,
   "jobs_enabled": 18,
-  "runs_total": 14,
-  "runs_ok": 9,
-  "runs_error": 5,
+  "runs_total": 12,
+  "runs_ok": 10,
+  "runs_error": 2,
   "error_types": {
-    "timeout": 5
+    "timeout": 2
   },
   "duplicates_enabled": [],
   "per_job": {
-    "优化建议生成器": {
-      "ok": 0,
-      "error": 1,
-      "timeout": 1
-    },
-    "学习指标追踪器": {
-      "ok": 0,
-      "error": 1,
-      "timeout": 1
-    },
     "推理模式分析器": {
       "ok": 0,
       "error": 1,
       "timeout": 1
     },
-    "记忆合并分析器": {
-      "ok": 0,
-      "error": 1,
-      "timeout": 1
-    },
-    "记忆自动标签器": {
+    "记忆生命周期处理": {
       "ok": 0,
       "error": 1,
       "timeout": 1
@@ -57,7 +42,7 @@
       "timeout": 0
     },
     "每日自我复盘": {
-      "ok": 2,
+      "ok": 1,
       "error": 0,
       "timeout": 0
     },
@@ -67,7 +52,7 @@
       "timeout": 0
     },
     "自我进化-健康扫描": {
-      "ok": 1,
+      "ok": 2,
       "error": 0,
       "timeout": 0
     },
@@ -75,20 +60,24 @@
       "ok": 1,
       "error": 0,
       "timeout": 0
+    },
+    "记忆自动标签器": {
+      "ok": 1,
+      "error": 0,
+      "timeout": 0
     }
   },
   "recommendations": [
-    "最近运行错误率偏高，建议先将高错误任务改为更低频率或先禁用，聚焦修复前 1-2 个根因。",
-    "存在持续超时，建议将重任务间隔拉长到 >= 30 分钟，并将 timeoutSeconds 设为 120-180。",
+    "当前运行稳定，建议保持节奏并每周复盘一次策略有效性。",
     "所有 pattern 引用次数为 0，说明推理模式尚未被实际复用。"
   ],
   "memory_quality": {
     "lessons": 13,
-    "patterns": 5,
-    "projects": 22,
-    "people": 3,
-    "day_active": 34,
-    "day_overdue": 0,
+    "patterns": 6,
+    "projects": 23,
+    "people": 4,
+    "day_active": 33,
+    "day_overdue": 1,
     "archived": 16,
     "pattern_refs": 0,
     "tag_coverage": 1,

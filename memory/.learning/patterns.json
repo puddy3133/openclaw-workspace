@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "last_updated": "2026-04-16T17:04:44.898Z",
+  "last_updated": "2026-04-18T01:00:28.741Z",
   "patterns": [
     {
       "pattern_id": "p_001",
@@ -88,11 +88,13 @@
         "projects/ai训练营作业.md",
         "projects/frontend-slides.md",
         "projects/openclaw-tui.md",
-        "projects/个人学习系统.md"
+        "projects/个人学习系统.md",
+        "patterns/api授权检查.md",
+        "projects/标书扩写任务.md"
       ],
-      "confidence": 0.81,
+      "confidence": 0.8300000000000001,
       "first_seen": "2026-04-16T00:00:00+08:00",
-      "last_seen": "2026-04-16T17:04:44.898Z",
+      "last_seen": "2026-04-18T01:00:28.741Z",
       "consolidation_candidate": false,
       "consolidation_target": null
     },
